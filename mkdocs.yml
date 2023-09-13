@@ -1,0 +1,141 @@
+site_name: My Pamphlet Blog
+
+theme:
+  name: material # 固定
+  language: zh # 语言设置为中文(会改变搜索栏/最后修改 等文字)，默认为英文
+  # logo: assets/logo.jpg # 页面中顶部栏左侧图标
+  # favicon: assets/favicon.jpg # 浏览器页面标签图标
+  custom_dir: overrides # html源代码扩展文件夹
+  features:
+    - navigation.expand # 目录自动展开子目录
+    # - toc.integrate # 右边的toc融合到左侧的目录中
+    - toc.follow # 右侧toc随着页面滑动自动滑动
+    - navigation.top # 有回到页面最上方top的按键
+    - search.suggest # 搜索建议
+    - navigation.footer # 页面底部有下一页的链接(按目录上的顺序)
+    # - navigation.tabs # 一级目录融合至顶栏，并且只展示二级目录
+    - content.code.copy # 代码块复制按键
+    - search.suggest # 搜索建议
+    - search.highlight # 搜索结果高亮/突出显示
+    - search.share # 搜索结果分享
+  palette: 
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night # 图标(可改，下同)
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - pymdownx.superfences: # mermaid画图
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list # 矩形按钮/按键
+  - def_list # a 无序/有序/任务 列表
+  - pymdownx.tasklist: # a
+      custom_checkbox: true
+  - pymdownx.critic # b Formatting 含 高亮/删除线/下划线/上下角标 [等]
+  - pymdownx.caret # b
+  - pymdownx.keys # b
+  - pymdownx.mark # b
+  - pymdownx.tilde # b
+  - toc: # 目录相关
+      permalink: true # 每个页面内，各标题会生成各自的链接
+      # title: 目录 # 修改页面右侧 Table of contents 文字
+  - footnotes # 脚注
+  - pymdownx.highlight: # c 代码块配置
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite # c
+  - pymdownx.snippets # c
+  - pymdownx.superfences # c
+  - admonition # d 标注
+  - pymdownx.details # d
+  - pymdownx.superfences # d
+  - pymdownx.emoji: # 使用emoji和icon
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # - pymdownx.superfences # e 内容选项卡
+  # - pymdownx.tabbed: # e
+      # alternate_style: true 
+
+repo_url: https://github.com/RonaldLN/MyPamphlet
+repo_name: RonaldLN/MyPamphlet
+
+extra_javascript:
+  - javascripts/katex.js 
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+  - javascripts/baidu-tongji.js 
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+extra:
+  analytics:
+    provider: google
+    property: G-H7SV12D750
+
+nav:
+  - Blog:
+    - index.md 
+
+plugins:
+  - blog:
+      authors: true
+      blog_dir: .
+      blog_toc: true
+      post_date_format: full
+      categories_toc: true
+      pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
+      pagination_keep_content: true
+      draft_if_future_date: true
+  # - i18n: # 语言切换 (需要放在 git-revision-date-localized 之前)
+  #   # v0.5.6
+  #     # default_language: en
+  #     # material_alternate: true
+  #     # languages:
+  #     #   zh:
+  #     #     name: 简体中文
+  #     #     build: true
+  #     #   en:
+  #     #     name: English labels (英文标签)
+  #     #     build: false
+  #   # v1.0.3
+  #     reconfigure_search: false
+  #     languages:
+  #         - locale: zh
+  #           name: 简体中文
+  #           build: true
+  #           default: false
+  #         - locale: en
+  #           name: English labels (英文标签)
+  #           build: true
+  #           default: true
+  - git-revision-date-localized: # 页面下方创建和修改时间
+      enable_creation_date: true
+      type: timeago
+  - glightbox # 图片放大
+  - search: # 搜索(选择支持中文、英文)
+      separator: '[\u200b\u3000\-、。，．？！；\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+      # jieba_dict: jieba_dict/dict.txt.big
+      # jieba_dict_user: jieba_dict/user_dict.txt
+      lang: 
+        # - zh
+        - ja
+        - en
+  # - tags # 添加给单个文档添加tag标签
+
+
+copyright: Copyright &copy; 2023 - 2023 Ronald Luo
