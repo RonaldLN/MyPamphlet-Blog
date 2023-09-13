@@ -13,7 +13,7 @@ theme:
     - navigation.top # 有回到页面最上方top的按键
     - search.suggest # 搜索建议
     - navigation.footer # 页面底部有下一页的链接(按目录上的顺序)
-    # - navigation.tabs # 一级目录融合至顶栏，并且只展示二级目录
+    - navigation.tabs # 一级目录融合至顶栏，并且只展示二级目录
     - content.code.copy # 代码块复制按键
     - search.suggest # 搜索建议
     - search.highlight # 搜索结果高亮/突出显示
@@ -70,8 +70,8 @@ markdown_extensions:
   # - pymdownx.tabbed: # e
       # alternate_style: true 
 
-repo_url: https://github.com/RonaldLN/MyPamphlet
-repo_name: RonaldLN/MyPamphlet
+repo_url: https://github.com/RonaldLN/MyPamphlet-Blog
+repo_name: RonaldLN/MyPamphlet-Blog
 
 extra_javascript:
   - javascripts/katex.js 
@@ -93,10 +93,10 @@ nav:
 
 plugins:
   - blog:
-      authors: true
       blog_dir: .
       blog_toc: true
       post_date_format: full
+      archive_toc: true
       categories_toc: true
       pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
       pagination_keep_content: true
