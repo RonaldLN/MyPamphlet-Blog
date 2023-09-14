@@ -660,29 +660,26 @@
 <p>我大致的操作过程是，创建一个新的mkdocs项目，然后按文档说的 在 <code>mkdocs.yml</code> 文件中添加必要的配置，</p>
 <ul>
 <li>
-<p><code>yaml
-    theme:
-      name: material</code></p>
 <p>基本上必须的</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">theme</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span>
+</span></code></pre></div>
 </li>
 <li>
-<p>```yaml
-    plugins:</p>
-<ul>
-<li>search:
-      jieba_dict: jieba_dict/dict.txt.big
-      jieba_dict_user: jieba_dict/user_dict.txt
-      lang: 
-        - zh
-```</li>
-</ul>
 <p>报错的地方</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">plugins</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">      </span><span class="nt">jieba_dict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jieba_dict/dict.txt.big</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">jieba_dict_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jieba_dict/user_dict.txt</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zh</span>
+</span></code></pre></div>
 </li>
 </ul>
 <p>然后 <code>mkdocs build</code> 一下，出现了报错，(如果没有应该就是继续按原来的配置添加可能导致报错的配置，不断尝试直到出现报错)</p>
 <p>再按文档说的，添加生成错误报告的插件</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">plugins</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">info</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">plugins</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">info</span>
 </span></code></pre></div>
 <p>最后再 <code>mkdocs build</code> 一次，但是这次需要能连接上 github (要挂梯子)，然后会在项目根目录生成一个 zip 文件</p>
 <p><a class="glightbox" href="../../../../images/mkdocs_bug_report.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="mkdocs_bug_report" loading="lazy" src="../../../../images/mkdocs_bug_report.png" /></a></p>
@@ -690,9 +687,9 @@
 <h2 id="stage-2"><strong>stage 2</strong><a class="headerlink" href="#stage-2" title="Permanent link">&para;</a></h2>
 <p>作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5992?sort=old#discussioncomment-6981166">回复</a>，将 <code>search</code> 中的 <code>lang</code> 选项全部去除即可</p>
 <p>但在我去除后，仍产生了一行报错</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>...
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>WARNING<span class="w"> </span>-<span class="w"> </span>Language<span class="w"> </span><span class="s1">&#39;zh&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>by<span class="w"> </span>Lunr.js,<span class="w"> </span>not<span class="w"> </span>setting<span class="w"> </span>it<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;plugins.search.lang&#39;</span><span class="w"> </span>option
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>...
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>...
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>WARNING<span class="w"> </span>-<span class="w"> </span>Language<span class="w"> </span><span class="s1">&#39;zh&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>by<span class="w"> </span>Lunr.js,<span class="w"> </span>not<span class="w"> </span>setting<span class="w"> </span>it<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;plugins.search.lang&#39;</span><span class="w"> </span>option
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>...
 </span></code></pre></div>
 <p>怀疑是由于使用了语言切换的插件 <code>i18n</code> 中设置的 <code>zh</code> 导致的，</p>
 <p>将插件的配置代码注释掉之后，再次配置，发现报错信息消失(所以确定报错信息是由于在i18n插件中设置了 <code>zh</code> 相关的配置产生的)</p>
@@ -708,13 +705,13 @@
 <p>经过尝试，发现需要将 <code>theme</code> 设置中的 <code>language</code> 设置成 <code>zh</code> 才能使搜索的中文支持正常(不加就不行)，并向作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5992#discussioncomment-6986308">反映</a></p>
 <p>作者回复，因为设置了 <code>language: zh</code> 会自动配置<em>搜索分割(search separator)</em>，如果没有设置 <code>language: zh</code> ，则需要<strong>手动添加相应的<em>搜索分割(search separator)</em></strong>，参考<a href="https://squidfunk.github.io/mkdocs-material/blog/2022/05/05/chinese-search-support/#configuration">Chinese search support - Material for MkDocs (squidfunk.github.io)</a></p>
 <p>但是我看到他给出的<a href="https://github.com/squidfunk/mkdocs-material/blob/502a517e2e7774c0518a60f0c8bf502b25671284/src/partials/languages/zh.html#L56">github里的文件</a>里，设置的的分割要更多( <code>"search.config.separator": "[\\s\\u200b\\u3000\\-、。，．？！；]+",</code> )，所以我选取了那个文件里的配置添加到我的 <code>mkdocs.yml</code> 文件里</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">      </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[\\s\\u200b\\u3000\\-、。，．？！；\s\-,:!=\[\]()&quot;/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&amp;[lg]t;&#39;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">      </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[\\s\\u200b\\u3000\\-、。，．？！；\s\-,:!=\[\]()&quot;/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&amp;[lg]t;&#39;</span>
 </span></code></pre></div>
 <blockquote>
 <p>原本为：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">      </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[\s\-,:!=\[\]()&quot;/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&amp;[lg]t;&#39;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">      </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[\s\-,:!=\[\]()&quot;/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&amp;[lg]t;&#39;</span>
 </span></code></pre></div>
 </blockquote>
 <p>经过测试，搜索中文支持能够正常使用，并且 <code>i18n</code> 插件也能正常使用</p>
@@ -724,7 +721,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-13T17:27:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-13</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-14T00:28:45+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-14</span>
       
         <br>
         创建日期:
