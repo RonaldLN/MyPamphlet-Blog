@@ -9,8 +9,8 @@
       
       
       
+        <link rel="prev" href="../../11/github/">
       
-        <link rel="next" href="../../13/mkdocs-material-blog/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -18,7 +18,7 @@
     
     
       
-        <title>一次在github上询问作者的经历 - My Pamphlet Blog</title>
+        <title>记录开始尝试使用 mkdocs-material 搭建 blog 页面的过程 - My Pamphlet Blog</title>
       
     
     
@@ -108,7 +108,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github" class="md-skip">
+        <a href="#mkdocs-material-blog" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              一次在github上询问作者的经历
+              记录开始尝试使用 mkdocs-material 搭建 blog 页面的过程
             
           </span>
         </div>
@@ -537,22 +537,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#stage-1" class="md-nav__link">
-    stage 1
+  <a href="#_1" class="md-nav__link">
+    配置文件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stage-2" class="md-nav__link">
-    stage 2
+  <a href="#blog" class="md-nav__link">
+    发布第一篇blog
   </a>
+  
+    <nav class="md-nav" aria-label="发布第一篇blog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    设置摘要
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    设置作者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stage-3" class="md-nav__link">
-    stage 3
+  <a href="#_4" class="md-nav__link">
+    插曲
   </a>
   
 </li>
@@ -607,7 +627,7 @@
               <li class="md-nav__item">
                 <div class="md-nav__link">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                  <time datetime="2023-09-11 00:00:00" class="md-ellipsis">2023年9月11日星期一</time>
+                  <time datetime="2023-09-13 00:00:00" class="md-ellipsis">2023年9月13日星期三</time>
                 </div>
               </li>
               
@@ -649,85 +669,191 @@
   
 
 
-<h1 id="github">一次在github上询问作者的经历<a class="headerlink" href="#github" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>2023-09-11</p>
-</blockquote>
-<p><a href="https://github.com/squidfunk/mkdocs-material/discussions/5992">Why does mkdocs-material display unsupported Chinese when running the mkdocs gh-deploy -- force command · squidfunk/mkdocs-material · Discussion #5992 (github.com)</a></p>
+<h1 id="mkdocs-material-blog">记录开始尝试使用 mkdocs-material 搭建 blog 页面的过程<a class="headerlink" href="#mkdocs-material-blog" title="Permanent link">&para;</a></h1>
+<p>本来以为在 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#writing-your-first-post">Writing your first post</a> 里能直接发布出一篇blog，但是发现还需要先配置(<a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#configuration">Configuration</a>)好</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Material for MkDocs makes it very easy to build a blog, either as a sidecar to your documentation or standalone. Focus on your content while the engine does all the heavy lifting, automatically generating <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#archive">archive</a> and <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#categories">category</a> indexes, <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.post_url_format">post slugs</a>, configurable <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#pagination">pagination</a> and more.</p>
+</div>
 <!-- more -->
 
-<h2 id="stage-1"><strong>stage 1</strong><a class="headerlink" href="#stage-1" title="Permanent link">&para;</a></h2>
-<p>作者让创建一个<em>最小复制件</em>然后上传，</p>
-<p><a href="https://squidfunk.github.io/mkdocs-material/guides/creating-a-reproduction/#creating-a-reproduction">Creating a reproduction - Material for MkDocs (squidfunk.github.io)</a></p>
-<p>我大致的操作过程是，创建一个新的mkdocs项目，然后按文档说的 在 <code>mkdocs.yml</code> 文件中添加必要的配置，</p>
-<ul>
-<li>
-<p>基本上必须的</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">theme</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span>
+<h2 id="_1">配置文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>先基本地添加blog插件，</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">plugin</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blog</span>
 </span></code></pre></div>
-</li>
-<li>
-<p>报错的地方</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">plugins</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">      </span><span class="nt">jieba_dict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jieba_dict/dict.txt.big</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">jieba_dict_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jieba_dict/user_dict.txt</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zh</span>
+<p>如果使用默认配置，文件结构应该为：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├─<span class="w"> </span>docs/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│<span class="w">  </span>└─<span class="w"> </span>blog/
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│<span class="w">     </span>├─<span class="w"> </span>posts/
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│<span class="w">     </span>└─<span class="w"> </span>index.md
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└─<span class="w"> </span>mkdocs.yml
 </span></code></pre></div>
-</li>
-</ul>
-<p>然后 <code>mkdocs build</code> 一下，出现了报错，(如果没有应该就是继续按原来的配置添加可能导致报错的配置，不断尝试直到出现报错)</p>
-<p>再按文档说的，添加生成错误报告的插件</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">plugins</span><span class="p">:</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">info</span>
-</span></code></pre></div>
-<p>最后再 <code>mkdocs build</code> 一次，但是这次需要能连接上 github (要挂梯子)，然后会在项目根目录生成一个 zip 文件</p>
-<p><a class="glightbox" href="../../../../images/mkdocs_bug_report.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="mkdocs_bug_report" loading="lazy" src="../../../../images/mkdocs_bug_report.png" /></a></p>
-<hr />
-<h2 id="stage-2"><strong>stage 2</strong><a class="headerlink" href="#stage-2" title="Permanent link">&para;</a></h2>
-<p>作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5992?sort=old#discussioncomment-6981166">回复</a>，将 <code>search</code> 中的 <code>lang</code> 选项全部去除即可</p>
-<p>但在我去除后，仍产生了一行报错</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>...
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>WARNING<span class="w"> </span>-<span class="w"> </span>Language<span class="w"> </span><span class="s1">&#39;zh&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>supported<span class="w"> </span>by<span class="w"> </span>Lunr.js,<span class="w"> </span>not<span class="w"> </span>setting<span class="w"> </span>it<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;plugins.search.lang&#39;</span><span class="w"> </span>option
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>...
-</span></code></pre></div>
-<p>怀疑是由于使用了语言切换的插件 <code>i18n</code> 中设置的 <code>zh</code> 导致的，</p>
-<p>将插件的配置代码注释掉之后，再次配置，发现报错信息消失(所以确定报错信息是由于在i18n插件中设置了 <code>zh</code> 相关的配置产生的)</p>
-<p>在查看了 <code>mkdocs-static-i18n</code> 的官方文档(<a href="https://ultrabug.github.io/mkdocs-static-i18n/getting-started/installation/">Installation - MkDocs static i18n plugin documentation (en) (ultrabug.github.io)</a>)之后，发现插件有个选项可以不更改mkdocs-material原有的内置search插件的配置</p>
-<p><a href="https://ultrabug.github.io/mkdocs-static-i18n/setup/setting-up-search/">Setting up search - MkDocs static i18n plugin documentation (en) (ultrabug.github.io)</a></p>
-<p>然后发现这是新版本才有的选项，所以将原有版本 <code>v0.5.6</code> 更新为 <code>v1.0.3</code> ，但新版本的语言配置也改变，<a href="https://ultrabug.github.io/mkdocs-static-i18n/setup/setting-up-languages/#option-languages">Setting up languages - MkDocs static i18n plugin documentation (en) (ultrabug.github.io)</a>，</p>
-<p>(其余的一些关于新版变化的发现可见于<a href="https://ronaldln.github.io/MyPamphlet/markdown%E7%9B%B8%E5%85%B3/mkdocs%28material%29/#18">手册18</a>)</p>
-<p>经过调整和选项的设置，最后报错信息消失了。</p>
-<p>但是搜索功能的中文分割仍然不能用，向作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5992?sort=old#discussioncomment-6984967">再次询问</a></p>
-<hr />
-<h2 id="stage-3"><strong>stage 3</strong><a class="headerlink" href="#stage-3" title="Permanent link">&para;</a></h2>
-<p>作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5992#discussioncomment-6986083">回复</a>他尝试了，可以正常使用</p>
-<p>经过尝试，发现需要将 <code>theme</code> 设置中的 <code>language</code> 设置成 <code>zh</code> 才能使搜索的中文支持正常(不加就不行)，并向作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5992#discussioncomment-6986308">反映</a></p>
-<p>作者回复，因为设置了 <code>language: zh</code> 会自动配置<em>搜索分割(search separator)</em>，如果没有设置 <code>language: zh</code> ，则需要<strong>手动添加相应的<em>搜索分割(search separator)</em></strong>，参考<a href="https://squidfunk.github.io/mkdocs-material/blog/2022/05/05/chinese-search-support/#configuration">Chinese search support - Material for MkDocs (squidfunk.github.io)</a></p>
-<p>但是我看到他给出的<a href="https://github.com/squidfunk/mkdocs-material/blob/502a517e2e7774c0518a60f0c8bf502b25671284/src/partials/languages/zh.html#L56">github里的文件</a>里，设置的的分割要更多( <code>"search.config.separator": "[\\s\\u200b\\u3000\\-、。，．？！；]+",</code> )，所以我选取了那个文件里的配置添加到我的 <code>mkdocs.yml</code> 文件里</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">      </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[\\s\\u200b\\u3000\\-、。，．？！；\s\-,:!=\[\]()&quot;/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&amp;[lg]t;&#39;</span>
+<p>并且<strong>必须</strong>将 <code>blog</code> 路径下的 <code>index.md</code> 添加到目录的配置中：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">nav</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Blog</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">blog/index.md</span><span class="w"> </span>
 </span></code></pre></div>
 <blockquote>
-<p>原本为：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">search</span><span class="p">:</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">      </span><span class="nt">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[\s\-,:!=\[\]()&quot;/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&amp;[lg]t;&#39;</span>
+<p><code>index.md</code> 内官方给出的模板：</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gh"># Blog</span>
+</span></code></pre></div>
+<p>当然想添加其他东西也可以自己添加</p>
+</blockquote>
+<p>在 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.blog_dir"><code>blog-dir</code></a> 中说到，如果想将网页制作成一个<em>独立博客(standalone blog)</em>，可以将 <code>blog-dir</code> 设置成 <code>.</code> ：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">plugins</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">blog</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">      </span><span class="nt">blog_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span></code></pre></div>
+<p>那么如果其他的路径使用默认的设置的话，文件结构应该变成</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├─<span class="w"> </span>docs/
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│<span class="w">  </span>├─<span class="w"> </span>posts/
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│<span class="w">  </span>└─<span class="w"> </span>index.md
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>└─<span class="w"> </span>mkdocs.yml
+</span></code></pre></div>
+<p>那么之前的目录的设置应该改成</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">nav</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Blog</span><span class="p">:</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span><span class="w"> </span>
+</span></code></pre></div>
+<p>之后我为了图省事，能使用默认的就使用默认的设置(推荐设置和默认设置一样的选项)，只添加推荐的配置和默认不一样的：</p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.blog_toc"><code>blog_toc</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.post_date_format"><code>post_date_format</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.pagination_format"><code>pagination_format</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.pagination_keep_content"><code>pagination_keep_content</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.pagination_keep_content"><code>draft_if_future_date</code></a></p>
+<p>最后最终我的配置为：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">plugins</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">blog</span><span class="p">:</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">      </span><span class="nt">blog_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">blog_toc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">post_date_format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">archive_toc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="nt">categories_toc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">pagination_format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$link_first</span><span class="nv"> </span><span class="s">$link_previous</span><span class="nv"> </span><span class="s">~2~</span><span class="nv"> </span><span class="s">$link_next</span><span class="nv"> </span><span class="s">$link_last&quot;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">      </span><span class="nt">pagination_keep_content</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">      </span><span class="nt">draft_if_future_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Note that this setting is also used as the default value for <code>archive_toc</code> and <code>categories_toc</code>, unless those settings are explicitly defined.</p>
+</div>
+<h2 id="blog">发布第一篇blog<a class="headerlink" href="#blog" title="Permanent link">&para;</a></h2>
+<p>我先直接copy了 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#writing-your-first-post">Writing your first post</a> ，发布第一篇blog，</p>
+<blockquote>
+<p>在之前的posts文件夹中新建博客的文档 <code>test.md</code> :</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>---
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>draft: true 
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>date: 2022-01-31 
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>categories:
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>Hello
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="gu">  - World</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="gu">---</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="gh"># Hello world!</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>...
 </span></code></pre></div>
 </blockquote>
-<p>经过测试，搜索中文支持能够正常使用，并且 <code>i18n</code> 插件也能正常使用</p>
+<p>然后慢慢添加设置</p>
+<h3 id="_2">设置摘要<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#adding-an-excerpt">Adding an excerpt</a></p>
+<p>可以在主页只显示blog中 <code>&lt;!-- more --&gt;</code> 之上的内容，而隐藏之后的内容:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>---
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>draft: false
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>date: 2023-09-11
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>authors:
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>ronald_luo
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>categories:
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="gu">  - Configure &amp; Debug</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="gu">---</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="gh"># 一次在github上询问作者的经历</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">&gt; </span><span class="ge">  2023-09-11</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>[<span class="nt">Why does mkdocs-material display unsupported Chinese when running the mkdocs gh-deploy -- force command · squidfunk/mkdocs-material · Discussion #5992 (github.com)</span>](<span class="na">https://github.com/squidfunk/mkdocs-material/discussions/5992</span>)
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>&lt;!-- more --&gt;
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="gu">## **stage 1**</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>作者让创建一个*最小复制件*然后上传，
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>...
+</span></code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">有摘要</label><label for="__tabbed_1_2">无摘要</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/except_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="except_1" loading="lazy" src="../../../../images/except_1.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/except_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="except_2" loading="lazy" src="../../../../images/except_2.png" /></a></p>
+</div>
+</div>
+</div>
+<h3 id="_3">设置作者<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#adding-authors">Adding authors</a></p>
+<p><strong>要在之前设置的blog的对应的路径下创建一个 <code>.author.yml</code> 文件</strong>：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">authors</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">ronald_luo</span><span class="p">:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ronald Luo</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">I&#39;m A Student</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nt">avatar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/RonaldLN/MyPamphlet-Blog/blob/main/assets/avatar.jpg?raw=true</span>
+</span></code></pre></div>
+<p><strong>并且 <code>name</code> <code>description</code> <code>avatar</code> 三个选项均为必须</strong></p>
+<p><code>avatar</code> 必须填入的图片的URL链接，不能填本地的路径</p>
+<p>在单篇blog中加入作者( <code>authors</code> 选项)：</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>---
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>...
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>authors:
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>ronald_luo
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  ...
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="gu">...</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="gu">---</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="gh"># 记录开始尝试使用 mkdocs-material 搭建 blog 页面的过程</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>...
+</span></code></pre></div>
+<hr />
+<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#adding-categories">Adding categories</a></p>
+<p>设置分类比较简单 易懂</p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#adding-tags">Adding tags</a></p>
+<p>添加tags在我的尝试过程中只能在搜索结果中显示tag，文章顶部并不能显示tag，感觉实用性不是很高，所以就没有添加这个东西</p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#setting-the-reading-time">Setting the reading time</a></p>
+<p>阅读时间在blog插件里内置有这个功能，不用设置也能显示阅读时间，但是如果认为不准的话，可以自己对单篇blog设置阅读时间而覆盖掉自动计算的</p>
+<hr />
+<p>剩余的我认为有用的两个功能都需要赞助的版本才能使用</p>
+<ul>
+<li>(在blog的左侧元数据部分)添加相关的链接 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#adding-related-links">Adding related links</a></li>
+<li>设置默认的数据，包括作者什么的 Setting defaults](https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#setting-defaults)</li>
+</ul>
+<h2 id="_4">插曲<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>测试时编写blog文档：</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>---
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gu">...</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="gu">---</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="gh"># Hello World</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="gh"># Hello World</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>...
+</span></code></pre></div>
+<p>发现单篇blog中并没有显示目录(table of contents)，不像<a href="https://squidfunk.github.io/mkdocs-material/blog/2022/09/12/blog-support-just-landed/">官方文档中的blog</a>那样</p>
+<p>于是在官方github上询问</p>
+<p><a href="https://github.com/squidfunk/mkdocs-material/discussions/5998#discussioncomment-6993353">How can I make the table of content appear for each post in my blog? · squidfunk/mkdocs-material · Discussion #5998 (github.com)</a></p>
+<p>作者<a href="https://github.com/squidfunk/mkdocs-material/discussions/5998#discussioncomment-6993353">回复</a>，只有只设置了一个一级标题，才能显示目录</p>
+<p>经过测试和修改之后成功显示了目录</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-14T00:28:45+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-14T01:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-14</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-13T17:24:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-13</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-14T01:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-14</span>
       
     
   </small>
@@ -764,22 +890,22 @@
       
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
-        
           
-          <a href="../../13/mkdocs-material-blog/" class="md-footer__link md-footer__link--next" aria-label="下一页: 记录开始尝试使用 mkdocs-material 搭建 blog 页面的过程" rel="next">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                记录开始尝试使用 mkdocs-material 搭建 blog 页面的过程
-              </div>
-            </div>
+          <a href="../../11/github/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 一次在github上询问作者的经历" rel="prev">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                一次在github上询问作者的经历
+              </div>
             </div>
           </a>
+        
         
       </nav>
     
