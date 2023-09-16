@@ -22,14 +22,14 @@ theme:
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
+      scheme: sunset
       toggle:
         icon: material/weather-night # 图标(可改，下同)
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: sunrise
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -81,6 +81,7 @@ extra_javascript:
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  - stylesheets/my_scheme.css
 
 extra:
   analytics:
