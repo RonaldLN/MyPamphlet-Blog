@@ -1,4 +1,4 @@
-[data-md-color-scheme="sunset glow"] {
+[data-md-color-scheme="sunset-glow"] {
   --md-hue: 6;
   --md-default-bg-color: hsla(var(--md-hue), 90%, 93%, 1);
   --md-default-bg-color--light: hsla(var(--md-hue), 90%, 93%, 0.54);
