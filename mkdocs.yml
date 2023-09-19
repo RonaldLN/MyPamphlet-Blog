@@ -22,14 +22,14 @@ theme:
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: forest
+      scheme: sunset glow
       toggle:
         icon: material/weather-night # 图标(可改，下同)
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: forest dark
+      scheme: sunset glow dark
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
