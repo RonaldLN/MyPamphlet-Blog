@@ -459,6 +459,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#exifquicktime" class="md-nav__link">
+    成功修改视频的exif信息(QuickTime创建时间)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2023" class="md-nav__link">
     记录十一假期准备2023中国机器人大赛先进视觉专项赛
   </a>
@@ -566,11 +573,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../category/chronicle-of-events/" class="md-nav__link">
+      <a href="../../category/records-of-trivia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Chronicle of Events
+    Records of Trivia
   </span>
   
 
@@ -586,11 +593,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../category/records-of-trivia/" class="md-nav__link">
+      <a href="../../category/chronicle-of-events/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Records of Trivia
+    Chronicle of Events
   </span>
   
 
@@ -660,6 +667,13 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exifquicktime" class="md-nav__link">
+    成功修改视频的exif信息(QuickTime创建时间)
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#2023" class="md-nav__link">
@@ -739,6 +753,51 @@
     <div class="md-post__meta md-meta">
       <ul class="md-meta__list">
         <li class="md-meta__item">
+          <time datetime="2023-10-03 00:00:00">2023年10月3日星期二</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="../../category/records-of-trivia/" class="md-meta__link">Records of Trivia</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 2 分钟阅读时间
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="exifquicktime"><a class="toclink" href="../../2023/10/03/exifquicktime/">成功修改视频的exif信息(QuickTime创建时间)</a></h2>
+<p>由于之前问了别人要了一些录像，但发现录像是 <code>.MOV</code> 文件格式(好像是苹果使用的格式？)，我想转换成 <code>.mp4</code> 格式，但转换完之后，在手机上的相册查看时，文件时间显示的是转换完成的时间，所以打算进行修改</p>
+
+    <nav class="md-post__action">
+      <a href="../../2023/10/03/exifquicktime/">
+        继续阅读
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/RonaldLN.png" alt="Ronald Luo">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
           <time datetime="2023-09-29 00:00:00">2023年9月29日星期五</time></li>
         
           <li class="md-meta__item">
@@ -761,8 +820,25 @@
   <div class="md-post__content md-typeset">
     <h2 id="2023"><a class="toclink" href="../../2023/09/29/2023/">记录十一假期准备2023中国机器人大赛先进视觉专项赛</a></h2>
 <h3 id="929"><a class="toclink" href="../../2023/09/29/2023/#929">9.29</a></h3>
+<h4 id="_1"><a class="toclink" href="../../2023/09/29/2023/#_1">测试使用相机</a></h4>
+<p>这届比赛要求使用 奥比中光 Astra+ 型号相机</p>
+<blockquote>
+<p>相关使用文档</p>
+<p><a href="https://vcp.developer.orbbec.com.cn/documentation">奥比中光AI开放平台|全球首个聚焦3D视觉开放平台 (orbbec.com.cn)</a></p>
+<blockquote>
+<p><a href="https://vcp.developer.orbbec.com.cn:9001/project-2/doc-70/">Orbbec SDK for Python 使用手册</a></p>
+</blockquote>
+</blockquote>
+<p><a href="https://vcp.developer.orbbec.com.cn:9001/project-2/doc-70/#windows-python-sdk-编译">Windows python sdk 编译</a> 中，“下载 python sdk 源码” 处的github仓库链接应该是写错了，我去github上面查找了一下，应该是这个</p>
+<p><a href="https://github.com/orbbec/pyorbbecsdk">orbbec/pyorbbecsdk: OrbbecSDK python binding (github.com)</a></p>
+<p>所以应该是</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/orbbec/pyorbbecsdk.git
+</span></code></pre></div>
+<hr />
+<p>但装好sdk之后，还未找到如何使用深度摄像头的方法</p>
+<h4 id="_2"><a class="toclink" href="../../2023/09/29/2023/#_2">处理算法相关</a></h4>
 <p>想要实现识别出桌面的算法，需要解决遮挡等问题(比如桌角和桌子边缘有可能会被遮挡)</p>
-<h4 id="_1"><a class="toclink" href="../../2023/09/29/2023/#_1">霍夫变换的思路</a></h4>
+<h5 id="_3"><a class="toclink" href="../../2023/09/29/2023/#_3">霍夫变换的思路</a></h5>
 <p>与 Bing 的对话记录</p>
 
     <nav class="md-post__action">
