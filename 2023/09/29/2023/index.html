@@ -12,7 +12,7 @@
         <link rel="prev" href="../../27/chatgpt/">
       
       
-        <link rel="next" href="../../../10/03/">
+        <link rel="next" href="../../../10/03/exifquicktime/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -1711,6 +1711,60 @@
 
 
 
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="RonaldLN/MyPamphlet-Blog"
+        data-repo-id="R_kgDOKTCz0g"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKTCz0s4CZ2M5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
       
     </article>
   </div>
@@ -1752,13 +1806,13 @@
         
         
           
-          <a href="../../../10/03/" class="md-footer__link md-footer__link--next" aria-label="下一页: 复现代码过程记录" rel="next">
+          <a href="../../../10/03/exifquicktime/" class="md-footer__link md-footer__link--next" aria-label="下一页: 成功修改视频的exif信息(QuickTime创建时间)" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                复现代码过程记录
+                成功修改视频的exif信息(QuickTime创建时间)
               </div>
             </div>
             <div class="md-footer__button md-icon">
