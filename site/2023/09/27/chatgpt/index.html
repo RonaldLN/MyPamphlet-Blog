@@ -1447,7 +1447,7 @@ $$</p>
         data-reactions-enabled="1"
         data-emit-metadata="1"
         data-input-position="top"
-        data-theme="dark_protanopia"
+        data-theme="noborder_dark"
         data-lang="zh-CN"
         data-loading="lazy"
         crossorigin="anonymous"
@@ -1460,9 +1460,9 @@ $$</p>
     // Set palette on initial load
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light"
+      var theme = palette.color.scheme === "sunset-glow-dark"
+        ? "noborder_dark"
+        : "dark_dimmed"
 
       // Instruct Giscus to set theme
       giscus.setAttribute("data-theme", theme) 
@@ -1474,9 +1474,9 @@ $$</p>
       ref.addEventListener("change", function() {
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
+          var theme = palette.color.scheme === "sunset-glow-dark"
+            ? "noborder_dark"
+            : "dark_dimmed"
 
           // Instruct Giscus to change theme
           var frame = document.querySelector(".giscus-frame")
