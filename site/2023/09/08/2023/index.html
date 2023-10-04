@@ -592,13 +592,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    问题三
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -779,186 +772,167 @@
 <p>在使用了json文件格式存储数据之后，即使需要这一问题中对数据的处理比较麻烦，要分成几步去处理，但最终也只花了大约不到3小时就处理好了最后的数据</p>
 <details class="note">
 <summary>c_4.py</summary>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 定义一个函数，将list或者dict存到指定的json文件中</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span> <span class="nn">json</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">def</span> <span class="nf">write_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="c1"># 打开json文件</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="c1"># 将数据写入json文件中</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1"># 定义一个函数，从json文件中读取数据</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="c1"># 打开json文件</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        <span class="c1"># 读取json文件中的数据</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>        <span class="c1"># 返回数据</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>        <span class="k">return</span> <span class="n">data</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="n">datas3</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;3.json&quot;</span><span class="p">)[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="n">datas3_2</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas3</span><span class="p">:</span>
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">datas3_2</span><span class="p">:</span>  <span class="c1"># !!!</span>
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>        <span class="n">datas3_2</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>        <span class="n">datas3_2</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>
-</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="n">datas3_3</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">datas3_2</span><span class="p">}</span>
-</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
-</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas3_2</span><span class="p">:</span>
-</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">datas3_2</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">datas3_3</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>            <span class="n">datas3_3</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
-</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>            <span class="n">datas3_3</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
-</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>
-</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="n">datas3_4</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="p">{</span><span class="n">key_2</span><span class="p">:</span> <span class="p">{</span><span class="n">key_3</span><span class="p">:</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">key_3</span> <span class="ow">in</span> <span class="n">datas3_3</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">key_2</span><span class="p">]}</span> <span class="k">for</span> <span class="n">key_2</span> <span class="ow">in</span> <span class="n">datas3_3</span><span class="p">[</span><span class="n">key</span><span class="p">]}</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">datas3_3</span><span class="p">}</span>
-</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>
-</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="c1"># for data in datas3_3:</span>
-</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="c1">#     for x in datas3_3[data]:</span>
-</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="c1">#         for y in datas3_3[data][x]:</span>
-</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="c1">#             if y[0] not in datas3_4[data][x]:</span>
-</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="c1">#                 datas3_4[data][x][y[0]] = [y[1:]]</span>
-</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="c1">#             else:</span>
-</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="c1">#                 datas3_4[data][x][y[0]] += [y[1:]]</span>
-</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>
-</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>
-</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>
-</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="c1">#</span>
-</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="c1"># for data in temp_res:</span>
-</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a><span class="c1">#     for x in temp_res[data]:</span>
-</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="c1">#         temp_res[data][x] = round(temp_res[data][x], 3)</span>
-</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>
-</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a><span class="n">write_data</span><span class="p">(</span><span class="s2">&quot;3_4.json&quot;</span><span class="p">,</span> <span class="n">datas3_4</span><span class="p">)</span>
-</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a><span class="c1"># datas3_res = temp_res</span>
-</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>
-</span><span id="__span-5-62"><a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a><span class="c1"># print(datas3_res)</span>
-</span></code></pre></div>
+<p>```python</p>
+<h1 id="listdictjson">定义一个函数，将list或者dict存到指定的json文件中<a class="headerlink" href="#listdictjson" title="Permanent link">&para;</a></h1>
+<p>import json</p>
 </details>
+<p>​  <br />
+    def write_data(file_name, data):
+        # 打开json文件
+        with open(file_name, "w", encoding="utf-8") as f:
+            # 将数据写入json文件中
+            json.dump(data, f, ensure_ascii=False, indent=4)</p>
+<p>​  <br />
+    # 定义一个函数，从json文件中读取数据
+    def read_data(file_name):
+        # 打开json文件
+        with open(file_name, "r", encoding="utf-8") as f:
+            # 读取json文件中的数据
+            data = json.load(f)
+            # 返回数据
+            return data</p>
+<p>​  <br />
+    datas3 = read_data("3.json")["data"]
+    datas3_2 = {}
+    for data in datas3:
+        if data[-1] not in datas3_2:  # !!!
+            datas3_2[data[-1]] = [data[:-1]]
+        else:
+            datas3_2[data[-1]] += [data[:-1]]</p>
+<div class="language-text highlight"><pre><span></span><code>datas3_3 = {key: {} for key in datas3_2}
+
+for data in datas3_2:
+    for x in datas3_2[data]:
+        if x[0] not in datas3_3[data]:
+            datas3_3[data][x[0]] = [x[1:]]
+        else:
+            datas3_3[data][x[0]] += [x[1:]]
+
+datas3_4 = {key: {key_2: {key_3: [value] for _, value, key_3 in datas3_3[key][key_2]} for key_2 in datas3_3[key]} for key in datas3_3}
+
+# for data in datas3_3:
+#     for x in datas3_3[data]:
+#         for y in datas3_3[data][x]:
+#             if y[0] not in datas3_4[data][x]:
+#                 datas3_4[data][x][y[0]] = [y[1:]]
+#             else:
+#                 datas3_4[data][x][y[0]] += [y[1:]]
+</code></pre></div>
+<p>​  <br />
+    #
+    # for data in temp_res:
+    #     for x in temp_res[data]:
+    #         temp_res[data][x] = round(temp_res[data][x], 3)</p>
+<div class="language-text highlight"><pre><span></span><code>write_data(&quot;3_4.json&quot;, datas3_4)
+# datas3_res = temp_res
+
+# print(datas3_res)
+```
+</code></pre></div>
 <details class="note">
 <summary>c_5.py</summary>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 定义一个函数，将list或者dict存到指定的json文件中</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span> <span class="nn">json</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">def</span> <span class="nf">write_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="c1"># 打开json文件</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="c1"># 将数据写入json文件中</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1"># 定义一个函数，从json文件中读取数据</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="c1"># 打开json文件</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>        <span class="c1"># 读取json文件中的数据</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>        <span class="c1"># 返回数据</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>        <span class="k">return</span> <span class="n">data</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="c1"># datas2 = read_data(&quot;2.json&quot;)[&quot;data&quot;]</span>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="c1"># datas2_2 = {}</span>
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="c1"># for data in datas2:</span>
-</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="c1">#     if data[-1] not in datas2_2:  # !!!</span>
-</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="c1">#         datas2_2[data[-1]] = [data[:-1]]</span>
-</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="c1">#     else:</span>
-</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="c1">#         datas2_2[data[-1]] += [data[:-1]]</span>
-</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>
-</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="c1"># datas2_2 = read_data(&quot;2_2.json&quot;)</span>
-</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="c1"># datas2_3 = {key: {} for key in datas2_2}</span>
-</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="c1">#</span>
-</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="c1"># for data in datas2_2:</span>
-</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="c1">#     for x in datas2_2[data]:</span>
-</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="c1">#         if x[0] not in datas2_3[data]:</span>
-</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="c1">#             datas2_3[data][x[0]] = [x[1:]]</span>
-</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="c1">#         else:</span>
-</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="c1">#             datas2_3[data][x[0]] += [x[1:]]</span>
-</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="c1">#</span>
-</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="c1"># datas2_4 = {key: {key_2: {time: [sales, price, name] for time, _, sales, price, _, _, name in datas2_3[key][key_2]} for key_2 in datas2_3[key]} for key in datas2_3}</span>
-</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>
-</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="n">datas2_4</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;2_4.json&quot;</span><span class="p">)</span>
-</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a><span class="n">datas3_4</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;3_4.json&quot;</span><span class="p">)</span>
-</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a><span class="n">datas2_5</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="p">{</span><span class="n">key_2</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;total sales&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;total price&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;total cost&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span> <span class="k">for</span> <span class="n">key_2</span> <span class="ow">in</span> <span class="n">datas2_4</span><span class="p">[</span><span class="n">key</span><span class="p">]}</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">datas2_4</span><span class="p">}</span>
-</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas2_4</span><span class="p">:</span>
-</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">datas2_4</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">datas2_4</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">]:</span>
-</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>            <span class="n">sales</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">datas2_4</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span>
-</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a>            <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total sales&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sales</span>
-</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>            <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total price&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">sales</span>
-</span><span id="__span-6-54"><a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a>            <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total cost&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">datas3_4</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">sales</span>
-</span><span id="__span-6-55"><a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a>            <span class="c1"># i = datas3_4[data][x][name][0]</span>
-</span><span id="__span-6-56"><a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a>
-</span><span id="__span-6-57"><a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a>
-</span><span id="__span-6-58"><a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a>
-</span><span id="__span-6-59"><a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a><span class="c1">#</span>
-</span><span id="__span-6-60"><a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a><span class="c1"># for data in temp_res:</span>
-</span><span id="__span-6-61"><a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a><span class="c1">#     for x in temp_res[data]:</span>
-</span><span id="__span-6-62"><a id="__codelineno-6-62" name="__codelineno-6-62" href="#__codelineno-6-62"></a><span class="c1">#         temp_res[data][x] = round(temp_res[data][x], 3)</span>
-</span><span id="__span-6-63"><a id="__codelineno-6-63" name="__codelineno-6-63" href="#__codelineno-6-63"></a>
-</span><span id="__span-6-64"><a id="__codelineno-6-64" name="__codelineno-6-64" href="#__codelineno-6-64"></a><span class="n">write_data</span><span class="p">(</span><span class="s2">&quot;2_5.json&quot;</span><span class="p">,</span> <span class="n">datas2_5</span><span class="p">)</span>
-</span><span id="__span-6-65"><a id="__codelineno-6-65" name="__codelineno-6-65" href="#__codelineno-6-65"></a><span class="c1"># datas3_res = temp_res</span>
-</span><span id="__span-6-66"><a id="__codelineno-6-66" name="__codelineno-6-66" href="#__codelineno-6-66"></a>
-</span><span id="__span-6-67"><a id="__codelineno-6-67" name="__codelineno-6-67" href="#__codelineno-6-67"></a><span class="c1"># print(datas3_res)</span>
-</span></code></pre></div>
+<p>```python</p>
+<h1 id="listdictjson_1">定义一个函数，将list或者dict存到指定的json文件中<a class="headerlink" href="#listdictjson_1" title="Permanent link">&para;</a></h1>
+<p>import json</p>
 </details>
+<p>​  <br />
+    def write_data(file_name, data):
+        # 打开json文件
+        with open(file_name, "w", encoding="utf-8") as f:
+            # 将数据写入json文件中
+            json.dump(data, f, ensure_ascii=False, indent=4)</p>
+<p>​  <br />
+    # 定义一个函数，从json文件中读取数据
+    def read_data(file_name):
+        # 打开json文件
+        with open(file_name, "r", encoding="utf-8") as f:
+            # 读取json文件中的数据
+            data = json.load(f)
+            # 返回数据
+            return data</p>
+<p>​  <br />
+    # datas2 = read_data("2.json")["data"]
+    # datas2_2 = {}
+    # for data in datas2:
+    #     if data[-1] not in datas2_2:  # !!!
+    #         datas2_2[data[-1]] = [data[:-1]]
+    #     else:
+    #         datas2_2[data[-1]] += [data[:-1]]</p>
+<div class="language-text highlight"><pre><span></span><code># datas2_2 = read_data(&quot;2_2.json&quot;)
+# datas2_3 = {key: {} for key in datas2_2}
+#
+# for data in datas2_2:
+#     for x in datas2_2[data]:
+#         if x[0] not in datas2_3[data]:
+#             datas2_3[data][x[0]] = [x[1:]]
+#         else:
+#             datas2_3[data][x[0]] += [x[1:]]
+#
+# datas2_4 = {key: {key_2: {time: [sales, price, name] for time, _, sales, price, _, _, name in datas2_3[key][key_2]} for key_2 in datas2_3[key]} for key in datas2_3}
+
+datas2_4 = read_data(&quot;2_4.json&quot;)
+datas3_4 = read_data(&quot;3_4.json&quot;)
+datas2_5 = {key: {key_2: {&quot;total sales&quot;: 0, &quot;total price&quot;: 0, &quot;total cost&quot;: 0} for key_2 in datas2_4[key]} for key in datas2_4}
+for data in datas2_4:
+    for x in datas2_4[data]:
+        for y in datas2_4[data][x]:
+            sales, price, name = datas2_4[data][x][y]
+            datas2_5[data][x][&quot;total sales&quot;] += sales
+            datas2_5[data][x][&quot;total price&quot;] += price * sales
+            datas2_5[data][x][&quot;total cost&quot;] += datas3_4[data][x][name][0] * sales
+            # i = datas3_4[data][x][name][0]
+</code></pre></div>
+<p>​  <br />
+    #
+    # for data in temp_res:
+    #     for x in temp_res[data]:
+    #         temp_res[data][x] = round(temp_res[data][x], 3)</p>
+<div class="language-text highlight"><pre><span></span><code>write_data(&quot;2_5.json&quot;, datas2_5)
+# datas3_res = temp_res
+
+# print(datas3_res)
+```
+</code></pre></div>
 <details class="note">
 <summary>c_6.py</summary>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 定义一个函数，将list或者dict存到指定的json文件中</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span> <span class="nn">json</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">def</span> <span class="nf">write_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="c1"># 打开json文件</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        <span class="c1"># 将数据写入json文件中</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="c1"># 定义一个函数，从json文件中读取数据</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="c1"># 打开json文件</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="c1"># 读取json文件中的数据</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>        <span class="c1"># 返回数据</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>        <span class="k">return</span> <span class="n">data</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="n">datas2_5</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;2_5.json&quot;</span><span class="p">)</span>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas2_5</span><span class="p">:</span>
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>        <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total profit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total price&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total cost&quot;</span><span class="p">]</span>
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;profit rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total profit&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="s2">&quot;total price&quot;</span><span class="p">]</span>
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">]:</span>
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>            <span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">datas2_5</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">],</span> <span class="mi">6</span><span class="p">)</span>
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="n">write_data</span><span class="p">(</span><span class="s2">&quot;2_6.json&quot;</span><span class="p">,</span> <span class="n">datas2_5</span><span class="p">)</span>
-</span></code></pre></div>
+<p>```python</p>
+<h1 id="listdictjson_2">定义一个函数，将list或者dict存到指定的json文件中<a class="headerlink" href="#listdictjson_2" title="Permanent link">&para;</a></h1>
+<p>import json</p>
 </details>
+<p>​  <br />
+    def write_data(file_name, data):
+        # 打开json文件
+        with open(file_name, "w", encoding="utf-8") as f:
+            # 将数据写入json文件中
+            json.dump(data, f, ensure_ascii=False, indent=4)</p>
+<p>​  <br />
+    # 定义一个函数，从json文件中读取数据
+    def read_data(file_name):
+        # 打开json文件
+        with open(file_name, "r", encoding="utf-8") as f:
+            # 读取json文件中的数据
+            data = json.load(f)
+            # 返回数据
+            return data</p>
+<p>​  <br />
+    datas2_5 = read_data("2_5.json")
+    for data in datas2_5:
+        for x in datas2_5[data]:
+            datas2_5[data][x]["total profit"] = datas2_5[data][x]["total price"] - datas2_5[data][x]["total cost"]
+            datas2_5[data][x]["profit rate"] = datas2_5[data][x]["total profit"] / datas2_5[data][x]["total price"]
+            for y in datas2_5[data][x]:
+                datas2_5[data][x][y] = round(datas2_5[data][x][y], 6)</p>
+<div class="language-text highlight"><pre><span></span><code>write_data(&quot;2_6.json&quot;, datas2_5)
+```
+</code></pre></div>
 <h2 id="_3">问题三<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>由于需要获取字典的全部value，因此使用 <code>.values()</code> 方法来获取字典的全部value，但发现返回的不是一个列表，是一个 <code>dict_values</code> 对象，因此使用 <code>list()</code> 方法将其转换为列表。</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">datas2_6_1</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;2_6_1.json&quot;</span><span class="p">)</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">datas2_6_1_list</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas2_6_1</span><span class="p">:</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">datas2_6_1</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">datas2_6_1_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">datas2_6_1</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">write_data_to_excel</span><span class="p">(</span><span class="s2">&quot;2_6_1.xlsx&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">datas2_6_1_list</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">datas2_6_1</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;2_6_1.json&quot;</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">datas2_6_1_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datas2_6_1</span><span class="p">:</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">datas2_6_1</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="n">datas2_6_1_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">datas2_6_1</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">write_data_to_excel</span><span class="p">(</span><span class="s2">&quot;2_6_1.xlsx&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">datas2_6_1_list</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
 <p>本来打算使用 sympy 来求取使利润最大的利润率，而函数中有对数函数，本来使用的是math里的 <code>log()</code> 函数，但出现报错，最后询问chatgpt发现需要使用 sympy 包里面的 <code>log(x, y)</code> 函数(x为真数，y为底数)</p>
@@ -969,7 +943,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-09-14T11:52:20+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-09-14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-04T05:24:18+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-04</span>
       
         <br>
         创建日期:
@@ -986,6 +960,60 @@
   
 
 
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="RonaldLN/MyPamphlet-Blog"
+        data-repo-id="R_kgDOKTCz0g"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOKTCz0s4CZ2M5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
       
     </article>
