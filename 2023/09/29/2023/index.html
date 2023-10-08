@@ -695,6 +695,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#107" class="md-nav__link">
+    10.7
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2010,62 +2017,76 @@
 </span></code></pre></div>
 <details class="note" open="open">
 <summary><code>test2.py</code></summary>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="k">def</span> <span class="nf">plot_2d_array_as_3d_point_cloud</span><span class="p">(</span><span class="n">points_2d</span><span class="p">):</span>
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>    <span class="c1"># Assign a constant z-coordinate (e.g., 0) to all points</span>
-</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>    <span class="n">points_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">points_2d</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points_2d</span><span class="p">))))</span>
-</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>
-</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>    <span class="c1"># Create a 3D scatter plot</span>
-</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>
-</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>    <span class="c1"># Extract x, y, and z coordinates</span>
-</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">points_3d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">points_3d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>    <span class="n">z</span> <span class="o">=</span> <span class="n">points_3d</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
-</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>
-</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>    <span class="c1"># Create the scatter plot</span>
-</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>
-</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>    <span class="c1"># Customize the plot if needed</span>
-</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
-</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
-</span><span id="__span-32-24"><a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
-</span><span id="__span-32-25"><a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;3D Point Cloud&#39;</span><span class="p">)</span>
-</span><span id="__span-32-26"><a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a>
-</span><span id="__span-32-27"><a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span><span id="__span-32-28"><a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a>
-</span><span id="__span-32-29"><a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a>
-</span><span id="__span-32-30"><a id="__codelineno-32-30" name="__codelineno-32-30" href="#__codelineno-32-30"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-</span><span id="__span-32-31"><a id="__codelineno-32-31" name="__codelineno-32-31" href="#__codelineno-32-31"></a>    <span class="c1"># Example usage:</span>
-</span><span id="__span-32-32"><a id="__codelineno-32-32" name="__codelineno-32-32" href="#__codelineno-32-32"></a>    <span class="n">points_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
-</span><span id="__span-32-33"><a id="__codelineno-32-33" name="__codelineno-32-33" href="#__codelineno-32-33"></a>                          <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span>
-</span><span id="__span-32-34"><a id="__codelineno-32-34" name="__codelineno-32-34" href="#__codelineno-32-34"></a>                          <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-</span><span id="__span-32-35"><a id="__codelineno-32-35" name="__codelineno-32-35" href="#__codelineno-32-35"></a>                          <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]])</span>
-</span><span id="__span-32-36"><a id="__codelineno-32-36" name="__codelineno-32-36" href="#__codelineno-32-36"></a>
-</span><span id="__span-32-37"><a id="__codelineno-32-37" name="__codelineno-32-37" href="#__codelineno-32-37"></a>    <span class="n">plot_2d_array_as_3d_point_cloud</span><span class="p">(</span><span class="n">points_2d</span><span class="p">)</span>
-</span><span id="__span-32-38"><a id="__codelineno-32-38" name="__codelineno-32-38" href="#__codelineno-32-38"></a>
-</span><span id="__span-32-39"><a id="__codelineno-32-39" name="__codelineno-32-39" href="#__codelineno-32-39"></a>
-</span><span id="__span-32-40"><a id="__codelineno-32-40" name="__codelineno-32-40" href="#__codelineno-32-40"></a><span class="k">def</span> <span class="nf">convertor</span><span class="p">(</span><span class="n">depth_arr</span><span class="p">):</span>
-</span><span id="__span-32-41"><a id="__codelineno-32-41" name="__codelineno-32-41" href="#__codelineno-32-41"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-32-42"><a id="__codelineno-32-42" name="__codelineno-32-42" href="#__codelineno-32-42"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">depth_arr</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span><span class="p">):</span>
-</span><span id="__span-32-43"><a id="__codelineno-32-43" name="__codelineno-32-43" href="#__codelineno-32-43"></a>        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">depth_arr</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">//</span> <span class="mi">10</span><span class="p">):</span>
-</span><span id="__span-32-44"><a id="__codelineno-32-44" name="__codelineno-32-44" href="#__codelineno-32-44"></a>            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">depth_arr</span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">10</span><span class="p">][</span><span class="n">y</span> <span class="o">*</span> <span class="mi">10</span><span class="p">]])</span>
-</span><span id="__span-32-45"><a id="__codelineno-32-45" name="__codelineno-32-45" href="#__codelineno-32-45"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span></code></pre></div>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
 </details>
+<p>​  <br />
+    def plot_2d_array_as_3d_point_cloud(points_2d):
+        # Assign a constant z-coordinate (e.g., 0) to all points
+        points_3d = np.column_stack((points_2d, np.zeros(len(points_2d))))</p>
+<div class="language-text highlight"><pre><span></span><code>    # Create a 3D scatter plot
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection=&#39;3d&#39;)
+
+    # Extract x, y, and z coordinates
+    x = points_3d[:, 0]
+    y = points_3d[:, 1]
+    z = points_3d[:, 2]
+
+    # Create the scatter plot
+    ax.scatter(x, y, z, c=&#39;b&#39;, marker=&#39;o&#39;, s=50)
+
+    # Customize the plot if needed
+    ax.set_xlabel(&#39;X&#39;)
+    ax.set_ylabel(&#39;Y&#39;)
+    ax.set_zlabel(&#39;Z&#39;)
+    ax.set_title(&#39;3D Point Cloud&#39;)
+
+    plt.show()
+</code></pre></div>
+<p>​  <br />
+    if <strong>name</strong> == '<strong>main</strong>':
+        # Example usage:
+        points_2d = np.array([[1.0, 2.0],
+                              [2.0, 3.0],
+                              [3.0, 1.0],
+                              [4.0, 4.0]])</p>
+<div class="language-text highlight"><pre><span></span><code>    plot_2d_array_as_3d_point_cloud(points_2d)
+</code></pre></div>
+<p>​  <br />
+    def convertor(depth_arr):
+        data = []
+        for x in range(len(depth_arr) // 10):
+            for y in range(len(depth_arr[x]) // 10):
+                data.append([x * 10, y * 10, depth_arr[x * 10][y * 10]])
+        return np.array(data)
+    ```</p>
 <p>最后显示的效果，感觉很好😊😄，能够看出对应的位置</p>
 <p><a class="glightbox" href="../../../../images/depth_diagram.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="depth_diagram" loading="lazy" src="../../../../images/depth_diagram.jpg" /></a></p>
+<h2 id="107">10.7<a class="headerlink" href="#107" title="Permanent link">&para;</a></h2>
+<p>配置环境上，</p>
+<p>由于需要安装 <code>matplotlib&gt;=3.2.2</code> ，而 jetson nano 上的 python 是 3.6.9 版本的， <code>matplotlib</code> 没有 <code>aarch64</code> 架构的 cp36 的 whl 文件，所以只能下载 <code>.tar.gz</code> 文件进行编译</p>
+<p>我们下载了 <a href="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/22/d4/e7ca532e68a9357742604e1e4ae35d9c09a4a810de39a9d80402bd12f50f/matplotlib-3.3.4.tar.gz#sha256=3e477db76c22929e4c6876c44f88d790aacdf3c3f8f3a90cb1975c0bf37825b0"><code>matplotlib-3.3.4.tar.gz</code></a> ，但在</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo<span class="w"> </span>python3<span class="w"> </span>setup.py<span class="w"> </span>install
+</span></code></pre></div>
+<p>时，产生了 <code>Illegal struction</code> 的报错，</p>
+<p>查询相关信息，发现了这个问题</p>
+<p><a href="https://stackoverflow.com/questions/71000696/jetson-agx-xavier-python3-matplotlib-3-3-4-installation-error">python - Jetson AGX Xavier python3 matplotlib 3.3.4 installation error - Stack Overflow</a></p>
+<p>其中 <a href="https://stackoverflow.com/a/76249218">RapidEdgeAI 的回答</a>提到，可以尝试将 1.19.5 的 numpy 降级安装 1.19.4 的版本，在最终尝试了这个方法之后(之前试了很多方法但没用)，最终成功安装了 <code>matplotlib</code> </p>
+<hr />
+<p>在后续安装一些包时，不知为何总是会 <code>Collecting numpy&gt;=x.x.x</code> ，即使已安装的 1.19.4 版本已经高于最低要求的版本，所以我开始查询直接忽略依赖安装包的方法</p>
+<p>然后查到可以使用 <code>--no-deps</code> 选项来忽略安装依赖，最后发现可行直接安装了包</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>scipy-1.5.4-cp36-cp36m-linux_aarch64.whl<span class="w"> </span>--no-deps
+</span></code></pre></div>
+<p>最后发现可行直接安装了 scipy 包</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-04T18:50:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-04</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-08T07:22:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-08</span>
       
         <br>
         创建日期:
