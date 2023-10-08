@@ -580,10 +580,10 @@
       
         <li class="md-nav__item">
   <a href="#openp5" class="md-nav__link">
-    OpenP5
+    OpenP5 (第一次尝试但中断)
   </a>
   
-    <nav class="md-nav" aria-label="OpenP5">
+    <nav class="md-nav" aria-label="OpenP5 (第一次尝试但中断)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -601,6 +601,33 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     报错
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#genrec" class="md-nav__link">
+    GenRec (第一次尝试但中断)
+  </a>
+  
+    <nav class="md-nav" aria-label="GenRec (第一次尝试但中断)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#huggingfaceco" class="md-nav__link">
+    解决 huggingface.co 连接不上问题，成功使用离线模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openp5_1" class="md-nav__link">
+    OpenP5 (第二次尝试)
   </a>
   
 </li>
@@ -677,7 +704,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                     <span class="md-ellipsis">
                       
-                        需要 8 分钟阅读时间
+                        需要 14 分钟阅读时间
                       
                     </span>
                   </div>
@@ -698,7 +725,7 @@
 
 
 <h1 id="_1">复现代码过程记录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="openp5">OpenP5<a class="headerlink" href="#openp5" title="Permanent link">&para;</a></h2>
+<h2 id="openp5">OpenP5 (第一次尝试但中断)<a class="headerlink" href="#openp5" title="Permanent link">&para;</a></h2>
 <p>论文网址：</p>
 <p><a href="https://paperswithcode.com/paper/openp5-benchmarking-foundation-models-for">OpenP5: Benchmarking Foundation Models for Recommendation | Papers With Code</a></p>
 <p>代码地址：</p>
@@ -893,13 +920,313 @@
 </span><span id="__span-8-100"><a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a>Checkout<span class="w"> </span>your<span class="w"> </span>internet<span class="w"> </span>connection<span class="w"> </span>or<span class="w"> </span>see<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>library<span class="w"> </span><span class="k">in</span><span class="w"> </span>offline<span class="w"> </span>mode<span class="w"> </span>at<span class="w"> </span><span class="s1">&#39;https://huggingface.co/docs/transformers/installation#offline-mode&#39;</span>.
 </span></code></pre></div>
 </details>
+<h2 id="genrec">GenRec (第一次尝试但中断)<a class="headerlink" href="#genrec" title="Permanent link">&para;</a></h2>
+<p>由于上一个代码暂时解决不了 <code>OSError: We couldn't connect to 'https://huggingface.co' to load this file ...</code> 的报错，所以开始尝试这篇论文的代码</p>
+<p>论文网址：</p>
+<p><a href="https://paperswithcode.com/paper/text-based-large-language-model-for">GenRec: Large Language Model for Generative Recommendation | Papers With Code</a></p>
+<p>代码地址：</p>
+<p><a href="https://github.com/rutgerswiselab/genrec">rutgerswiselab/GenRec: Large Language Model for Generative Recommendation (github.com)</a></p>
+<p>安装好环境之后，初次运行发现</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ModuleNotFoundError:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;scipy&#39;</span>
+</span></code></pre></div>
+<p>于是安装 <code>scipy</code> </p>
+<p>然后再运行</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ImportError:<span class="w"> </span>Using<span class="w"> </span><span class="sb">`</span><span class="nv">load_in_8bit</span><span class="o">=</span>True<span class="sb">`</span><span class="w"> </span>requires<span class="w"> </span>Accelerate:<span class="w"> </span><span class="sb">`</span>pip<span class="w"> </span>install<span class="w"> </span>accelerate<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>bitsandbytes<span class="w"> </span><span class="sb">`</span>pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>bitsandbytes<span class="sb">`</span><span class="w"> </span>or<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>bitsandbytes<span class="sb">`</span>
+</span></code></pre></div>
+<p>尝试 <code>pip install accelerate</code> 和 <code>pip install -i https://test.pypi.org/simple/ bitsandbytes</code> 后，显示都安装了，所以上网查找相关信息，然后发现两个 <strong><mark>不久前的回答</mark></strong></p>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/questions/76924239/accelerate-and-bitsandbytes-is-needed-to-install-but-i-did">python - Accelerate and bitsandbytes is needed to install but I did - Stack Overflow</a></p>
+<p>中 <a href="https://stackoverflow.com/a/76976563">jason的回答</a></p>
+</li>
+<li>
+<p><a href="https://huggingface.co/anon8231489123/vicuna-13b-GPTQ-4bit-128g/discussions/11">anon8231489123/vicuna-13b-GPTQ-4bit-128g · I keep getting this: ImportError: Using <code>load_in_8bit=True</code> requires Accelerate (huggingface.co)</a></p>
+<p>中 <a href="https://huggingface.co/anon8231489123/vicuna-13b-GPTQ-4bit-128g/discussions/11#650c4ea403e1ec1fc2ff0714">anudeepadi的回答</a></p>
+</li>
+</ul>
+<p>都说了将 <code>transformers</code> 的版本<em>降级 downgrade</em> 到 <code>4.30</code> 就好了(我本来自动安装的版本是 <code>4.35.0.dev0</code> )(这个 <code>transformers</code> 怎么这么麻烦，上一篇论文也是弄这玩意弄了好久😡🤬)</p>
+<p>修改以后发现可以运行了</p>
+<p><a class="glightbox" href="../../../images/run_genrec.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="run_genrec" loading="lazy" src="../../../images/run_genrec.png" /></a></p>
+<p>最后出现这样的报错</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\GenRec\rec.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">289</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span>fire.Fire<span class="o">(</span>train<span class="o">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\fire\core.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">141</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>Fire
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nv">component_trace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_Fire<span class="o">(</span>component,<span class="w"> </span>args,<span class="w"> </span>parsed_flag_args,<span class="w"> </span>context,<span class="w"> </span>name<span class="o">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\fire\core.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">475</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_Fire
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span>component,<span class="w"> </span><span class="nv">remaining_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_CallAndUpdateTrace<span class="o">(</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\fire\core.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">691</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_CallAndUpdateTrace
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="nv">component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>fn<span class="o">(</span>*varargs,<span class="w"> </span>**kwargs<span class="o">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\GenRec\rec.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">104</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>train
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>LlamaForCausalLM.from_pretrained<span class="o">(</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\transformers\modeling_utils.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">2819</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>from_pretrained
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span>raise<span class="w"> </span>ValueError<span class="o">(</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>ValueError:
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">                        </span>Some<span class="w"> </span>modules<span class="w"> </span>are<span class="w"> </span>dispatched<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>CPU<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span>disk.<span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>enough<span class="w"> </span>GPU<span class="w"> </span>RAM<span class="w"> </span>to<span class="w"> </span>fit
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">                        </span>the<span class="w"> </span>quantized<span class="w"> </span>model.<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>dispatch<span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>CPU<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span>disk<span class="w"> </span><span class="k">while</span><span class="w"> </span>keeping
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">                        </span>these<span class="w"> </span>modules<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">32</span>-bit,<span class="w"> </span>you<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="sb">`</span><span class="nv">load_in_8bit_fp32_cpu_offload</span><span class="o">=</span>True<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span>pass<span class="w"> </span>a<span class="w"> </span>custom
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">                        </span><span class="sb">`</span>device_map<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>from_pretrained<span class="sb">`</span>.<span class="w"> </span>Check
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">                        </span>https://huggingface.co/docs/transformers/main/en/main_classes/quantization#offload-between-cpu-and-gpu
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">                        </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>details.
+</span></code></pre></div>
+<hr />
+<blockquote>
+<p>(10.6)</p>
+</blockquote>
+<p>我怀疑可能是因为这个环境没有装 cuda 的原因，所以打算换用之前 OpenP5 的环境，于是开始安装对相应的包</p>
+<p>由于出现了相似的网络问题，</p>
+<blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<p><code>requirements.txt</code> 中有几个需要从 github 上安装包</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git+https://github.com/huggingface/peft.git
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git+https://github.com/huggingface/transformers.git
+</span></code></pre></div>
+</blockquote>
+<p>我打算直接 <code>pip install peft</code> ( <code>transformers</code> 之前 <code>openp5</code> 环境上已经安装过了)</p>
+<p>安装时，把之前环境中的 <code>torch-1.8.1+cu111</code> 卸载了</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Installing<span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>mpmath,<span class="w"> </span>sympy,<span class="w"> </span>psutil,<span class="w"> </span>networkx,<span class="w"> </span>MarkupSafe,<span class="w"> </span>jinja2,<span class="w"> </span>torch
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>Attempting<span class="w"> </span>uninstall:<span class="w"> </span>torch
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span>Found<span class="w"> </span>existing<span class="w"> </span>installation:<span class="w"> </span>torch<span class="w"> </span><span class="m">1</span>.8.1+cu111
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span>Uninstalling<span class="w"> </span>torch-1.8.1+cu111:
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">      </span>Successfully<span class="w"> </span>uninstalled<span class="w"> </span>torch-1.8.1+cu111
+</span></code></pre></div>
+<p>所以在结束后又重新安装了(还好之前的 <code>.whl</code> 文件还保留着)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;torch-1.8.1+cu111-cp39-cp39-win_amd64.whl&quot;</span>
+</span></code></pre></div>
+<p>但是发现 <code>peft</code> 和 <code>accelerate</code> 要求更高版本的torch，</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>peft<span class="w"> </span><span class="m">0</span>.6.0.dev0<span class="w"> </span>requires<span class="w"> </span>torch&gt;<span class="o">=</span><span class="m">1</span>.13.0,<span class="w"> </span>but<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>torch<span class="w"> </span><span class="m">1</span>.8.1+cu111<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>incompatible.
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>accelerate<span class="w"> </span><span class="m">0</span>.23.0<span class="w"> </span>requires<span class="w"> </span>torch&gt;<span class="o">=</span><span class="m">1</span>.10.0,<span class="w"> </span>but<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>torch<span class="w"> </span><span class="m">1</span>.8.1+cu111<span class="w"> </span>which<span class="w"> </span>is<span class="w"> </span>incompatible.
+</span></code></pre></div>
+<p>所以我打算安装版本低一些 <code>peft</code> 和 <code>accelerate</code> </p>
+<hr />
+<p>发现 peft 0.4.x 的版本也要求torch最低版本1.13，所以我打算直接给原来的 <code>genrec</code> 环境安装新的 torch ，</p>
+<p>但是发现，torch 1.13 最低只支持 11.6 的 cuda ，因此又安装了 11.6 的 cuda ， 然后安装了 torch-1.13.0+cu116</p>
+<p>然后运行就和之前显示的信息不一样了</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>RuntimeError:
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">        </span>CUDA<span class="w"> </span>Setup<span class="w"> </span>failed<span class="w"> </span>despite<span class="w"> </span>GPU<span class="w"> </span>being<span class="w"> </span>available.<span class="w"> </span>Please<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>more<span class="w"> </span>information:
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">        </span>python<span class="w"> </span>-m<span class="w"> </span>bitsandbytes
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span>Inspect<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>and<span class="w"> </span>see<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>locate<span class="w"> </span>CUDA<span class="w"> </span>libraries.<span class="w"> </span>You<span class="w"> </span>might<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>add<span class="w"> </span>them
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span>to<span class="w"> </span>your<span class="w"> </span>LD_LIBRARY_PATH.<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>suspect<span class="w"> </span>a<span class="w"> </span>bug,<span class="w"> </span>please<span class="w"> </span>take<span class="w"> </span>the<span class="w"> </span>information<span class="w"> </span>from<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>bitsandbytes
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span>and<span class="w"> </span>open<span class="w"> </span>an<span class="w"> </span>issue<span class="w"> </span>at:<span class="w"> </span>https://github.com/TimDettmers/bitsandbytes/issues
+</span></code></pre></div>
+<p>上网搜索到</p>
+<p><a href="https://github.com/TimDettmers/bitsandbytes/issues/175">CUDA Setup failed despite GPU being available. Inspect the CUDA SETUP outputs above to fix your environment! · Issue #175 · TimDettmers/bitsandbytes (github.com)</a></p>
+<p>注意到 <a href="https://github.com/TimDettmers/bitsandbytes/issues/175#issuecomment-1488003048">Keith-Hon的回答</a>可能可行，并且 <a href="https://github.com/TimDettmers/bitsandbytes/issues/175#issuecomment-1502651860">maximus-sallam也说到他的方法可行</a></p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>I have fixed it by including the .dll and fixed the file path. It now works on windows 10.</p>
+<p><a href="https://github.com/Keith-Hon/bitsandbytes-windows.git">https://github.com/Keith-Hon/bitsandbytes-windows.git</a></p>
+<p>Install the bitsandbytes library by</p>
+<p>pip install bitsandbytes-windows.</p>
+<p>Be noted that it may not work directly with transformers library as it references the bitsandbytes package by using 'bitsandbytes' name. &lt;= to avoid this issue, you could directly install from the git repo</p>
+<p>pip install git+https://github.com/Keith-Hon/bitsandbytes-windows.git</p>
+</div>
+<blockquote>
+<p>bitsandbytes-windows 的 github 仓库地址</p>
+<p><a href="https://github.com/Keith-Hon/bitsandbytes-windows">https://github.com/Keith-Hon/bitsandbytes-windows</a></p>
+</blockquote>
+<p>所以我尝试</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pip<span class="w"> </span>install<span class="w"> </span>bitsandbytes-windows
+</span></code></pre></div>
+<p>然后发现可行，之前的报错消失了，</p>
+<p>但随之而来的是，碰到了和上一篇论文一样的问题/报错(连接不了 <code>huggingface.co</code> )</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>requests.exceptions.ProxyError:<span class="w"> </span><span class="o">(</span>MaxRetryError<span class="o">(</span><span class="s2">&quot;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Max retries exceeded with url: /decapoda-research/llama-7b-hf/resolve/main/config.json (Caused by ProxyError(&#39;Unable to connect to proxy&#39;, SSLError(SSLZeroReturnError(6, &#39;TLS/SSL connection has been closed (EOF) (_ssl.c:1129)&#39;))))&quot;</span><span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;(Request ID: 3eadaf0f-dc33-4690-98b6-d2e5dc10c3ba)&#39;</span><span class="o">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="huggingfaceco">解决 huggingface.co 连接不上问题，成功使用离线模式<a class="headerlink" href="#huggingfaceco" title="Permanent link">&para;</a></h3>
+<p>搜索相关信息时，发现了一篇文章</p>
+<p><a href="https://blog.csdn.net/weixin_41862755/article/details/120686319">python 报错 requests.exceptions.ConnectionError: HTTPSConnectionPool(host=‘huggingface.co‘,port=443):M_requests.exceptions.sslerror: httpsconnectionpool(-CSDN博客</a></p>
+<p>提到了可以将模型下载下来，并提到下载模型可以参阅 <a href="https://blog.csdn.net/weixin_41862755/article/details/120686480">如何从huggingface官网下载模型-CSDN博客</a></p>
+<p>然后我突然想到了，上一篇论文代码最后的报错信息中，有提到</p>
+<blockquote>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Checkout<span class="w"> </span>your<span class="w"> </span>internet<span class="w"> </span>connection<span class="w"> </span>or<span class="w"> </span>see<span class="w"> </span>how<span class="w"> </span>to<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>library<span class="w"> </span><span class="k">in</span><span class="w"> </span>offline<span class="w"> </span>mode<span class="w"> </span>at<span class="w"> </span><span class="s1">&#39;https://huggingface.co/docs/transformers/installation#offline-mode&#39;</span>.
+</span></code></pre></div>
+</blockquote>
+<p>所以我重新开始查看它的文档并理解应该怎么使用离线模式(之前也看了但是没理解应该怎么使用离线模式)</p>
+<p><a href="https://huggingface.co/docs/transformers/installation#offline-mode">Offline mode - Installation (huggingface.co)  https://huggingface.co/docs/transformers/installation#offline-mode</a></p>
+<p><mark>由于</mark> csdn 那两篇文章都 <mark>没有明说下载的文件应该放在哪个文件夹</mark>，<mark>所以</mark> 最后我 <mark>判断应该是可以自定义存放的路径</mark> (我一开始以为需要放在指定的路径下)，<strong>于是开始查看应该如何加载自定义的路径</strong></p>
+<p>然后我先是注意到了官方文档中的</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">T5Model</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">T5Model</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">&quot;./path/to/local/directory&quot;</span><span class="p">,</span> <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+<p>这里我认为是开始加载了模型，于是我在 <code>rec.py</code> 中查找对应的代码，发现 104 行有加载模型的代码</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">LlamaForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>        <span class="n">base_model</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>        <span class="n">load_in_8bit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>        <span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>        <span class="n">device_map</span><span class="o">=</span><span class="n">device_map</span><span class="p">,</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="p">)</span>
+</span></code></pre></div>
+<p>然后 <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + 点击 <code>base_model</code> 查看具体它是什么，然后跳转到第 28 行</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="c1"># model/data params</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">base_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># the only required argument</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;yahma/alpaca-cleaned&quot;</span><span class="p">,</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/common/users/jj635/llama/mycheckpoint/&quot;</span><span class="p">,</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="c1"># training hyperparams</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span><span class="c1">#used to be 128</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    <span class="n">micro_batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>    <span class="o">...</span>
+</span></code></pre></div>
+<p>然后想到了命令行输入的命令(也是感觉到跟之前使用 yolov7 时，<em>命令行命令和代码中的对应关系</em> 有点像)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>python<span class="w"> </span>rec.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span>--base_model<span class="w"> </span><span class="s1">&#39;decapoda-research/llama-7b-hf&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span>--data_path<span class="w"> </span><span class="s1">&#39;./moives&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span>--output_dir<span class="w"> </span><span class="s1">&#39;./checkpoint&#39;</span>
+</span></code></pre></div>
+<p>然后再对比官方文档中的，离线模式的命令行命令</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">HF_DATASETS_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">TRANSFORMERS_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>python<span class="w"> </span>examples/pytorch/translation/run_translation.py<span class="w"> </span>--model_name_or_path<span class="w"> </span>t5-small<span class="w"> </span>--dataset_name<span class="w"> </span>wmt16<span class="w"> </span>--dataset_config<span class="w"> </span>ro-en<span class="w"> </span>...
+</span></code></pre></div>
+<p><mark>所以得到一个可能的解决方法</mark>，即先将</p>
+<p>于是按照 <a href="https://blog.csdn.net/weixin_41862755/article/details/120686480">如何从huggingface官网下载模型-CSDN博客</a> 中写的，在 <a href="https://huggingface.co/models">Models - Hugging Face https://huggingface.co/models</a> 中找到/查询到对应的模型库</p>
+<ul>
+<li>
+<p>根据之前的报错信息</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>...<span class="w"> </span>Max<span class="w"> </span>retries<span class="w"> </span>exceeded<span class="w"> </span>with<span class="w"> </span>url:<span class="w"> </span>/decapoda-research/llama-7b-hf/resolve/main/config.json<span class="w"> </span>...
+</span></code></pre></div>
+</li>
+<li>
+<p>或者根据使用的命令中的</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="w">    </span>--base_model<span class="w"> </span><span class="s1">&#39;decapoda-research/llama-7b-hf&#39;</span><span class="w"> </span><span class="se">\</span>
+</span></code></pre></div>
+</li>
+</ul>
+<p>可以找到相应的网址</p>
+<p><a href="https://huggingface.co/decapoda-research/llama-7b-hf">decapoda-research/llama-7b-hf · Hugging Face</a></p>
+<p>然后点击 <code>File and versions</code> ，就可以在这里下载</p>
+<p><a href="https://huggingface.co/decapoda-research/llama-7b-hf/tree/main">decapoda-research/llama-7b-hf at main (huggingface.co)</a></p>
+<p>最后对 <code>rec.py</code> 中进行相应的修改，之前的报错消失</p>
+<blockquote>
+<p>但是出现了和之前(最开始时)一样的报错信息🙃🙄(怎么兜兜转转回到原地)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>ValueError:u
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">                        </span>Some<span class="w"> </span>modules<span class="w"> </span>are<span class="w"> </span>dispatched<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>CPU<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span>disk.<span class="w"> </span>Make<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>enough<span class="w"> </span>GPU<span class="w"> </span>RAM<span class="w"> </span>to<span class="w"> </span>fit
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">                        </span>the<span class="w"> </span>quantized<span class="w"> </span>model.<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>dispatch<span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>CPU<span class="w"> </span>or<span class="w"> </span>the<span class="w"> </span>disk<span class="w"> </span><span class="k">while</span><span class="w"> </span>keeping
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">                        </span>these<span class="w"> </span>modules<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">32</span>-bit,<span class="w"> </span>you<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="sb">`</span><span class="nv">load_in_8bit_fp32_cpu_offload</span><span class="o">=</span>True<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span>pass<span class="w"> </span>a<span class="w"> </span>custom
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">                        </span><span class="sb">`</span>device_map<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>from_pretrained<span class="sb">`</span>.<span class="w"> </span>Check
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">                        </span>https://huggingface.co/docs/transformers/main/en/main_classes/quantization#offload-between-cpu-and-gpu
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">                        </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>details.
+</span></code></pre></div>
+</blockquote>
+<hr />
+<p>粗略尝试了</p>
+<p><a href="https://huggingface.co/docs/transformers/main/en/main_classes/quantization#offload-between-cpu-and-gpu">Quantize 🤗 Transformers models (huggingface.co) https://huggingface.co/docs/transformers/main/en/main_classes/quantization#offload-between-cpu-and-gpu</a></p>
+<p>上的方法，我将代码修改成</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LlamaForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>        <span class="c1"># base_model,</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>        <span class="s2">&quot;../llama-7b-hf&quot;</span><span class="p">,</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>        <span class="n">load_in_8bit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>        <span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>        <span class="c1"># device_map=device_map,</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>        <span class="n">local_files_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>        <span class="n">device_map</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>            <span class="s2">&quot;transformer.word_embeddings&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>            <span class="s2">&quot;transformer.word_embeddings_layernorm&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>            <span class="s2">&quot;lm_head&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>            <span class="s2">&quot;transformer.h&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>            <span class="s2">&quot;transformer.ln_f&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>        <span class="p">},</span>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>        <span class="n">quantization_config</span><span class="o">=</span><span class="n">BitsAndBytesConfig</span><span class="p">(</span><span class="n">llm_int8_enable_fp32_cpu_offload</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>    <span class="p">)</span>
+</span></code></pre></div>
+<p>但最后显示</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="o">===================================</span>BUG<span class="w"> </span><span class="nv">REPORT</span><span class="o">===================================</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Welcome<span class="w"> </span>to<span class="w"> </span>bitsandbytes.<span class="w"> </span>For<span class="w"> </span>bug<span class="w"> </span>reports,<span class="w"> </span>please<span class="w"> </span>submit<span class="w"> </span>your<span class="w"> </span>error<span class="w"> </span>trace<span class="w"> </span>to:<span class="w"> </span>https://github.com/TimDettmers/bitsandbytes/issues
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="o">================================================================================</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>binary_path:<span class="w"> </span>E:<span class="se">\P</span>rograms<span class="se">\A</span>naconda3<span class="se">\e</span>nvs<span class="se">\g</span>enrec<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="se">\b</span>itsandbytes<span class="se">\c</span>uda_setup<span class="se">\l</span>ibbitsandbytes_cuda116.dll
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>CUDA<span class="w"> </span>SETUP:<span class="w"> </span>Loading<span class="w"> </span>binary<span class="w"> </span>E:<span class="se">\P</span>rograms<span class="se">\A</span>naconda3<span class="se">\e</span>nvs<span class="se">\g</span>enrec<span class="se">\l</span>ib<span class="se">\s</span>ite-packages<span class="se">\b</span>itsandbytes<span class="se">\c</span>uda_setup<span class="se">\l</span>ibbitsandbytes_cuda116.dll...
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>Training<span class="w"> </span>Alpaca-LoRA<span class="w"> </span>model<span class="w"> </span>with<span class="w"> </span>params:
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>base_model:<span class="w"> </span>decapoda-research/llama-7b-hf
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>data_path:<span class="w"> </span>./moives
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>output_dir:<span class="w"> </span>./checkpoint
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>batch_size:<span class="w"> </span><span class="m">128</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>micro_batch_size:<span class="w"> </span><span class="m">4</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>num_epochs:<span class="w"> </span><span class="m">3</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>learning_rate:<span class="w"> </span><span class="m">0</span>.0003
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>cutoff_len:<span class="w"> </span><span class="m">256</span>
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>val_set_size:<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>lora_r:<span class="w"> </span><span class="m">8</span>
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>lora_alpha:<span class="w"> </span><span class="m">16</span>
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>lora_dropout:<span class="w"> </span><span class="m">0</span>.05
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>lora_target_modules:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;q_proj&#39;</span>,<span class="w"> </span><span class="s1">&#39;v_proj&#39;</span><span class="o">]</span>
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>train_on_inputs:<span class="w"> </span>True
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a>group_by_length:<span class="w"> </span>False
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>wandb_project:
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>wandb_run_name:
+</span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>wandb_watch:
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>wandb_log_model:
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>resume_from_checkpoint:<span class="w"> </span>None
+</span><span id="__span-30-27"><a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>
+</span><span id="__span-30-28"><a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>Loading<span class="w"> </span>checkpoint<span class="w"> </span>shards:<span class="w">   </span><span class="m">0</span>%<span class="p">|</span><span class="w">                                                                </span><span class="p">|</span><span class="w"> </span><span class="m">0</span>/33<span class="w"> </span><span class="o">[</span><span class="m">00</span>:00&lt;?,<span class="w"> </span>?it/s<span class="o">]</span>
+</span><span id="__span-30-29"><a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+</span><span id="__span-30-30"><a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\GenRec\rec.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">302</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+</span><span id="__span-30-31"><a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a><span class="w">    </span>fire.Fire<span class="o">(</span>train<span class="o">)</span>
+</span><span id="__span-30-32"><a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\fire\core.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">141</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>Fire
+</span><span id="__span-30-33"><a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a><span class="w">    </span><span class="nv">component_trace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_Fire<span class="o">(</span>component,<span class="w"> </span>args,<span class="w"> </span>parsed_flag_args,<span class="w"> </span>context,<span class="w"> </span>name<span class="o">)</span>
+</span><span id="__span-30-34"><a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\fire\core.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">475</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_Fire
+</span><span id="__span-30-35"><a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a><span class="w">    </span>component,<span class="w"> </span><span class="nv">remaining_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_CallAndUpdateTrace<span class="o">(</span>
+</span><span id="__span-30-36"><a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\fire\core.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">691</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_CallAndUpdateTrace
+</span><span id="__span-30-37"><a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a><span class="w">    </span><span class="nv">component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>fn<span class="o">(</span>*varargs,<span class="w"> </span>**kwargs<span class="o">)</span>
+</span><span id="__span-30-38"><a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\GenRec\rec.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">106</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>train
+</span><span id="__span-30-39"><a id="__codelineno-30-39" name="__codelineno-30-39" href="#__codelineno-30-39"></a><span class="w">    </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>LlamaForCausalLM.from_pretrained<span class="o">(</span>
+</span><span id="__span-30-40"><a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\transformers\modeling_utils.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">2881</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>from_pretrained
+</span><span id="__span-30-41"><a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a><span class="w">    </span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cls._load_pretrained_model<span class="o">(</span>
+</span><span id="__span-30-42"><a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\transformers\modeling_utils.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">3228</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_load_pretrained_model
+</span><span id="__span-30-43"><a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a><span class="w">    </span>new_error_msgs,<span class="w"> </span>offload_index,<span class="w"> </span><span class="nv">state_dict_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_load_state_dict_into_meta_model<span class="o">(</span>
+</span><span id="__span-30-44"><a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\genrec\lib\site-packages\transformers\modeling_utils.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">710</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_load_state_dict_into_meta_model
+</span><span id="__span-30-45"><a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a><span class="w">    </span>raise<span class="w"> </span>ValueError<span class="o">(</span>f<span class="s2">&quot;{param_name} doesn&#39;t have any device set.&quot;</span><span class="o">)</span>
+</span><span id="__span-30-46"><a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a>ValueError:<span class="w"> </span>model.layers.0.self_attn.q_proj.weight<span class="w"> </span>doesn<span class="err">&#39;</span>t<span class="w"> </span>have<span class="w"> </span>any<span class="w"> </span>device<span class="w"> </span>set.
+</span></code></pre></div>
+<hr />
+<p>看到了这个问题</p>
+<p><a href="https://huggingface.co/google/flan-ul2/discussions/8">google/flan-ul2 · ValueError: Some modules are dispatched on the CPU or the disk. Make sure you have enough GPU RAM (huggingface.co)</a></p>
+<p>根据其中<a href="https://huggingface.co/google/flan-ul2/discussions/8#6436f03af8962b4332ba2644">ybelkaba 的回答</a>所提到的，我猜这个报错应该由于cpu和gpu内存不够大</p>
+<hr />
+<h2 id="openp5_1">OpenP5 (第二次尝试)<a class="headerlink" href="#openp5_1" title="Permanent link">&para;</a></h2>
+<p>由于 GenRec 的代码遇到的问题暂时不知道如何解决，并且由于解决了 huggingface.co 的离线使用问题，所以打算再次尝试运行 OpenP5</p>
+<p>首先是下载模型，然后修改相应的代码</p>
+<p>我在 <code>./src/main.py</code> 第 88 行处新增一行 <code>args.backbone = "../../" + args.backbone</code> ：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>    <span class="o">...</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    <span class="n">args</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gpu</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>    <span class="c1"># offline set</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>    <span class="n">args</span><span class="o">.</span><span class="n">backbone</span> <span class="o">=</span> <span class="s2">&quot;../../&quot;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">backbone</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>    <span class="o">...</span>
+</span></code></pre></div>
+<p>并且把每个 <code>.from_pretrained()</code> 中都加上了 <code>local_files_only=True</code> ，并且运行</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nv">HF_DATASETS_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">TRANSFORMERS_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sh<span class="w"> </span>ML1M_random.sh
+</span></code></pre></div>
+<p>运行时，之前的报错消失了，变成了</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\OpenP5-old_version\src\main.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">241</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span>single_main<span class="o">()</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\OpenP5-old_version\src\main.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">98</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>single_main
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span>TrainSet,<span class="w"> </span><span class="nv">ValidSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>get_dataset<span class="o">(</span>args<span class="o">)</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\OpenP5-old_version\src\main.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">33</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>get_dataset
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">    </span><span class="nv">TrainDataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>MultiTaskDataset<span class="o">(</span>args,<span class="w"> </span>data,<span class="w"> </span><span class="s1">&#39;train&#39;</span><span class="o">)</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Github\code_reproduction\OpenP5-old_version\src\data\MultiTaskDataset.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">110</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>__init__
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">    </span>dist.barrier<span class="o">()</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\openp5\lib\site-packages\torch\distributed\distributed_c10d.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">2419</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>barrier
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">    </span><span class="nv">default_pg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_get_default_group<span class="o">()</span>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;E:\Programs\Anaconda3\envs\openp5\lib\site-packages\torch\distributed\distributed_c10d.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">347</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>_get_default_group
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">    </span>raise<span class="w"> </span>RuntimeError<span class="o">(</span><span class="s2">&quot;Default process group has not been initialized, &quot;</span>
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>RuntimeError:<span class="w"> </span>Default<span class="w"> </span>process<span class="w"> </span>group<span class="w"> </span>has<span class="w"> </span>not<span class="w"> </span>been<span class="w"> </span>initialized,<span class="w"> </span>please<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>to<span class="w"> </span>call<span class="w"> </span>init_process_group.
+</span></code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-04T18:50:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-04</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-08T07:22:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-08</span>
       
         <br>
         创建日期:
