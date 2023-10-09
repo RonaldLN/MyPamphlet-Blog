@@ -702,6 +702,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#109" class="md-nav__link">
+    10.9
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -774,7 +781,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                     <span class="md-ellipsis">
                       
-                        需要 28 分钟阅读时间
+                        需要 29 分钟阅读时间
                       
                     </span>
                   </div>
@@ -2022,14 +2029,14 @@ import numpy as np
 import matplotlib.pyplot as plt</p>
 </details>
 <p>​  <br />
-    def plot_2d_array_as_3d_point_cloud(points_2d):
-        # Assign a constant z-coordinate (e.g., 0) to all points
-        points_3d = np.column_stack((points_2d, np.zeros(len(points_2d))))</p>
-<div class="language-text highlight"><pre><span></span><code>    # Create a 3D scatter plot
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection=&#39;3d&#39;)
-
-    # Extract x, y, and z coordinates
+​    def plot_2d_array_as_3d_point_cloud(points_2d):
+​        # Assign a constant z-coordinate (e.g., 0) to all points
+​        points_3d = np.column_stack((points_2d, np.zeros(len(points_2d))))
+​  <br />
+        # Create a 3D scatter plot
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')</p>
+<div class="language-text highlight"><pre><span></span><code>    # Extract x, y, and z coordinates
     x = points_3d[:, 0]
     y = points_3d[:, 1]
     z = points_3d[:, 2]
@@ -2046,22 +2053,22 @@ import matplotlib.pyplot as plt</p>
     plt.show()
 </code></pre></div>
 <p>​  <br />
-    if <strong>name</strong> == '<strong>main</strong>':
-        # Example usage:
-        points_2d = np.array([[1.0, 2.0],
-                              [2.0, 3.0],
-                              [3.0, 1.0],
-                              [4.0, 4.0]])</p>
-<div class="language-text highlight"><pre><span></span><code>    plot_2d_array_as_3d_point_cloud(points_2d)
-</code></pre></div>
+​    if <strong>name</strong> == '<strong>main</strong>':
+​        # Example usage:
+​        points_2d = np.array([[1.0, 2.0],
+​                              [2.0, 3.0],
+​                              [3.0, 1.0],
+​                              [4.0, 4.0]])
+​  <br />
+        plot_2d_array_as_3d_point_cloud(points_2d)</p>
 <p>​  <br />
-    def convertor(depth_arr):
-        data = []
-        for x in range(len(depth_arr) // 10):
-            for y in range(len(depth_arr[x]) // 10):
-                data.append([x * 10, y * 10, depth_arr[x * 10][y * 10]])
-        return np.array(data)
-    ```</p>
+​    def convertor(depth_arr):
+​        data = []
+​        for x in range(len(depth_arr) // 10):
+​            for y in range(len(depth_arr[x]) // 10):
+​                data.append([x * 10, y * 10, depth_arr[x * 10][y * 10]])
+​        return np.array(data)
+​    ```</p>
 <p>最后显示的效果，感觉很好😊😄，能够看出对应的位置</p>
 <p><a class="glightbox" href="../../../../images/depth_diagram.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="depth_diagram" loading="lazy" src="../../../../images/depth_diagram.jpg" /></a></p>
 <h2 id="107">10.7<a class="headerlink" href="#107" title="Permanent link">&para;</a></h2>
@@ -2080,13 +2087,45 @@ import matplotlib.pyplot as plt</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>scipy-1.5.4-cp36-cp36m-linux_aarch64.whl<span class="w"> </span>--no-deps
 </span></code></pre></div>
 <p>最后发现可行直接安装了 scipy 包</p>
+<h2 id="109">10.9<a class="headerlink" href="#109" title="Permanent link">&para;</a></h2>
+<p>成功自动加载 <code>pyorbbecsdk</code> 的包</p>
+<p>在 <code>~/.bashrc</code> 中最后添加上了基于官方文档中的测试命令修改的 <code>sh</code> 脚本</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:~/Desktop/pyorbbecsdk/install/lib/
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1"># install udev rules</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;1111&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>-S<span class="w"> </span>bash<span class="w"> </span>~/Desktop/pyorbbecsdk/scripts/install_udev_rules.sh
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;1111&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>-S<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;1111&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>-S<span class="w"> </span>udevadm<span class="w"> </span>trigger
+</span></code></pre></div>
+<blockquote>
+<p>原本的命令是</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:<span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install/lib/
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sudo<span class="w"> </span>bash<span class="w"> </span>./scripts/install_udev_rules.sh
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>trigger
+</span></code></pre></div>
+</blockquote>
+<p>最后测试成功自动添加了python环境变量，不会显示出 <code>No module named 'pyorbbecsdk'</code> 的报错信息</p>
+<hr />
+<p>通讯部分由于之前没人负责写，所以我在火车站开始尝试写</p>
+<p>由于需要使用 <code>socket</code> 包，所以我开始安装这个包，</p>
+<p>但是 <code>pip install socket</code> 时却显示</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Looking<span class="w"> </span><span class="k">in</span><span class="w"> </span>indexes:<span class="w"> </span>https://mirrors.bfsu.edu.cn/pypi/web/simple/
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>ERROR:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>a<span class="w"> </span>version<span class="w"> </span>that<span class="w"> </span>satisfies<span class="w"> </span>the<span class="w"> </span>requirement<span class="w"> </span>socket<span class="w"> </span><span class="o">(</span>from<span class="w"> </span>versions:<span class="w"> </span>none<span class="o">)</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>ERROR:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>distribution<span class="w"> </span>found<span class="w"> </span><span class="k">for</span><span class="w"> </span>socket
+</span></code></pre></div>
+<p>所以搜索相关信息，发现需要改成 <code>sockets</code> </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>pip<span class="w"> </span>install<span class="w"> </span>sockets
+</span></code></pre></div>
+<p>然后安装成功</p>
+<hr />
+<p>同学写出了 基于深度帧的数据分割桌面 的算法(是采用之前我提出的想法)，大致是，先在深度帧中分割，然后在彩色帧中分割出对应的位置，</p>
+<p>最后测试的效果发现还不错</p>
+<p><a class="glightbox" href="../../../../images/desk_segment.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="desk_segment" loading="lazy" src="../../../../images/desk_segment.png" /></a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-08T07:22:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-08</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-09T18:40:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-09</span>
       
         <br>
         创建日期:
