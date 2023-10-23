@@ -483,11 +483,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../category/records-of-trivia/" class="md-nav__link">
+      <a href="../../../../category/chronicle-of-events/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Records of Trivia
+    Chronicle of Events
   </span>
   
 
@@ -503,11 +503,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../category/chronicle-of-events/" class="md-nav__link">
+      <a href="../../../../category/records-of-trivia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Chronicle of Events
+    Records of Trivia
   </span>
   
 
@@ -781,7 +781,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                     <span class="md-ellipsis">
                       
-                        需要 29 分钟阅读时间
+                        需要 30 分钟阅读时间
                       
                     </span>
                   </div>
@@ -2033,18 +2033,18 @@ import matplotlib.pyplot as plt</p>
 ​        # Assign a constant z-coordinate (e.g., 0) to all points
 ​        points_3d = np.column_stack((points_2d, np.zeros(len(points_2d))))
 ​  <br />
-        # Create a 3D scatter plot
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')</p>
-<div class="language-text highlight"><pre><span></span><code>    # Extract x, y, and z coordinates
-    x = points_3d[:, 0]
-    y = points_3d[:, 1]
-    z = points_3d[:, 2]
-
-    # Create the scatter plot
-    ax.scatter(x, y, z, c=&#39;b&#39;, marker=&#39;o&#39;, s=50)
-
-    # Customize the plot if needed
+​        # Create a 3D scatter plot
+​        fig = plt.figure()
+​        ax = fig.add_subplot(111, projection='3d')
+​  <br />
+​        # Extract x, y, and z coordinates
+​        x = points_3d[:, 0]
+​        y = points_3d[:, 1]
+​        z = points_3d[:, 2]
+​  <br />
+        # Create the scatter plot
+        ax.scatter(x, y, z, c='b', marker='o', s=50)</p>
+<div class="language-text highlight"><pre><span></span><code>    # Customize the plot if needed
     ax.set_xlabel(&#39;X&#39;)
     ax.set_ylabel(&#39;Y&#39;)
     ax.set_zlabel(&#39;Z&#39;)
@@ -2060,7 +2060,7 @@ import matplotlib.pyplot as plt</p>
 ​                              [3.0, 1.0],
 ​                              [4.0, 4.0]])
 ​  <br />
-        plot_2d_array_as_3d_point_cloud(points_2d)</p>
+​        plot_2d_array_as_3d_point_cloud(points_2d)</p>
 <p>​  <br />
 ​    def convertor(depth_arr):
 ​        data = []
@@ -2116,16 +2116,120 @@ import matplotlib.pyplot as plt</p>
 </span></code></pre></div>
 <p>然后安装成功</p>
 <hr />
-<p>同学写出了 基于深度帧的数据分割桌面 的算法(是采用之前我提出的想法)，大致是，先在深度帧中分割，然后在彩色帧中分割出对应的位置，</p>
+<p>由于同学写出了 基于深度帧的数据分割桌面 的算法(是采用之前我提出的想法)，大致是，先在深度帧中分割，然后在彩色帧中分割出对应的位置，</p>
+<p>但我注意到，相机读取的深度帧的视角和彩色帧的视角不一样大，如果采用直接读取的深度帧和彩色帧，在分割时需要进行一定的转换</p>
+<p>但运行 <code>pyorbbecsdk\examples\depth_color_sync_align_viewer.py</code> 能获取出深度帧和彩色帧结合在一起的图像，所以我根据这个文件的代码，获取到了对应了位置的深度帧和帧的图像，然后进行了分割算法的测试</p>
 <p>最后测试的效果发现还不错</p>
 <p><a class="glightbox" href="../../../../images/desk_segment.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="desk_segment" loading="lazy" src="../../../../images/desk_segment.png" /></a></p>
+<hr />
+<p>由于其他同学写的其他部分的功能，需要使用保存成文件的图像，</p>
+<p>在写相应代码的时候，我发现<strong>可以将 <code>numpy</code> 数组直接保存成二进制文件来读写</strong>，速度就会稍微变快(深度帧和彩色帧都可以用 <code>numpy</code> 矩阵来存储)</p>
+<details class="note" open="open">
+<summary>new3.py</summary>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">()</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;--mode&quot;</span><span class="p">,</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;align mode, HW=hardware mode,SW=software mode,NONE=disable align&quot;</span><span class="p">,</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>                        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;HW&#39;</span><span class="p">)</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;--enable_sync&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;enable sync&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>    <span class="n">align_mode</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span>
+</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>    <span class="n">enable_sync</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">enable_sync</span>
+</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>        <span class="n">profile_list</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_stream_profile_list</span><span class="p">(</span><span class="n">OBSensorType</span><span class="o">.</span><span class="n">COLOR_SENSOR</span><span class="p">)</span>
+</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>        <span class="n">color_profile</span> <span class="o">=</span> <span class="n">profile_list</span><span class="o">.</span><span class="n">get_default_video_stream_profile</span><span class="p">()</span>
+</span><span id="__span-38-15"><a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>        <span class="n">config</span><span class="o">.</span><span class="n">enable_stream</span><span class="p">(</span><span class="n">color_profile</span><span class="p">)</span>
+</span><span id="__span-38-16"><a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>        <span class="n">profile_list</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_stream_profile_list</span><span class="p">(</span><span class="n">OBSensorType</span><span class="o">.</span><span class="n">DEPTH_SENSOR</span><span class="p">)</span>
+</span><span id="__span-38-17"><a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>        <span class="k">assert</span> <span class="n">profile_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="__span-38-18"><a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>        <span class="n">depth_profile</span> <span class="o">=</span> <span class="n">profile_list</span><span class="o">.</span><span class="n">get_default_video_stream_profile</span><span class="p">()</span>
+</span><span id="__span-38-19"><a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a>        <span class="k">assert</span> <span class="n">depth_profile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="__span-38-20"><a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;color profile : </span><span class="si">{}</span><span class="s2">x</span><span class="si">{}</span><span class="s2">@</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">color_profile</span><span class="o">.</span><span class="n">get_width</span><span class="p">(),</span>
+</span><span id="__span-38-21"><a id="__codelineno-38-21" name="__codelineno-38-21" href="#__codelineno-38-21"></a>                                                   <span class="n">color_profile</span><span class="o">.</span><span class="n">get_height</span><span class="p">(),</span>
+</span><span id="__span-38-22"><a id="__codelineno-38-22" name="__codelineno-38-22" href="#__codelineno-38-22"></a>                                                   <span class="n">color_profile</span><span class="o">.</span><span class="n">get_fps</span><span class="p">(),</span>
+</span><span id="__span-38-23"><a id="__codelineno-38-23" name="__codelineno-38-23" href="#__codelineno-38-23"></a>                                                   <span class="n">color_profile</span><span class="o">.</span><span class="n">get_format</span><span class="p">()))</span>
+</span><span id="__span-38-24"><a id="__codelineno-38-24" name="__codelineno-38-24" href="#__codelineno-38-24"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;depth profile : </span><span class="si">{}</span><span class="s2">x</span><span class="si">{}</span><span class="s2">@</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">depth_profile</span><span class="o">.</span><span class="n">get_width</span><span class="p">(),</span>
+</span><span id="__span-38-25"><a id="__codelineno-38-25" name="__codelineno-38-25" href="#__codelineno-38-25"></a>                                                   <span class="n">depth_profile</span><span class="o">.</span><span class="n">get_height</span><span class="p">(),</span>
+</span><span id="__span-38-26"><a id="__codelineno-38-26" name="__codelineno-38-26" href="#__codelineno-38-26"></a>                                                   <span class="n">depth_profile</span><span class="o">.</span><span class="n">get_fps</span><span class="p">(),</span>
+</span><span id="__span-38-27"><a id="__codelineno-38-27" name="__codelineno-38-27" href="#__codelineno-38-27"></a>                                                   <span class="n">depth_profile</span><span class="o">.</span><span class="n">get_format</span><span class="p">()))</span>
+</span><span id="__span-38-28"><a id="__codelineno-38-28" name="__codelineno-38-28" href="#__codelineno-38-28"></a>        <span class="n">config</span><span class="o">.</span><span class="n">enable_stream</span><span class="p">(</span><span class="n">depth_profile</span><span class="p">)</span>
+</span><span id="__span-38-29"><a id="__codelineno-38-29" name="__codelineno-38-29" href="#__codelineno-38-29"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-38-30"><a id="__codelineno-38-30" name="__codelineno-38-30" href="#__codelineno-38-30"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-38-31"><a id="__codelineno-38-31" name="__codelineno-38-31" href="#__codelineno-38-31"></a>        <span class="k">return</span>
+</span><span id="__span-38-32"><a id="__codelineno-38-32" name="__codelineno-38-32" href="#__codelineno-38-32"></a>    <span class="k">if</span> <span class="n">align_mode</span> <span class="o">==</span> <span class="s1">&#39;HW&#39;</span><span class="p">:</span>
+</span><span id="__span-38-33"><a id="__codelineno-38-33" name="__codelineno-38-33" href="#__codelineno-38-33"></a>        <span class="n">config</span><span class="o">.</span><span class="n">set_align_mode</span><span class="p">(</span><span class="n">OBAlignMode</span><span class="o">.</span><span class="n">HW_MODE</span><span class="p">)</span>
+</span><span id="__span-38-34"><a id="__codelineno-38-34" name="__codelineno-38-34" href="#__codelineno-38-34"></a>    <span class="k">elif</span> <span class="n">align_mode</span> <span class="o">==</span> <span class="s1">&#39;SW&#39;</span><span class="p">:</span>
+</span><span id="__span-38-35"><a id="__codelineno-38-35" name="__codelineno-38-35" href="#__codelineno-38-35"></a>        <span class="n">config</span><span class="o">.</span><span class="n">set_align_mode</span><span class="p">(</span><span class="n">OBAlignMode</span><span class="o">.</span><span class="n">SW_MODE</span><span class="p">)</span>
+</span><span id="__span-38-36"><a id="__codelineno-38-36" name="__codelineno-38-36" href="#__codelineno-38-36"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-38-37"><a id="__codelineno-38-37" name="__codelineno-38-37" href="#__codelineno-38-37"></a>        <span class="n">config</span><span class="o">.</span><span class="n">set_align_mode</span><span class="p">(</span><span class="n">OBAlignMode</span><span class="o">.</span><span class="n">DISABLE</span><span class="p">)</span>
+</span><span id="__span-38-38"><a id="__codelineno-38-38" name="__codelineno-38-38" href="#__codelineno-38-38"></a>    <span class="k">if</span> <span class="n">enable_sync</span><span class="p">:</span>
+</span><span id="__span-38-39"><a id="__codelineno-38-39" name="__codelineno-38-39" href="#__codelineno-38-39"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-38-40"><a id="__codelineno-38-40" name="__codelineno-38-40" href="#__codelineno-38-40"></a>            <span class="n">pipeline</span><span class="o">.</span><span class="n">enable_frame_sync</span><span class="p">()</span>
+</span><span id="__span-38-41"><a id="__codelineno-38-41" name="__codelineno-38-41" href="#__codelineno-38-41"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-38-42"><a id="__codelineno-38-42" name="__codelineno-38-42" href="#__codelineno-38-42"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-38-43"><a id="__codelineno-38-43" name="__codelineno-38-43" href="#__codelineno-38-43"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-38-44"><a id="__codelineno-38-44" name="__codelineno-38-44" href="#__codelineno-38-44"></a>        <span class="n">pipeline</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-38-45"><a id="__codelineno-38-45" name="__codelineno-38-45" href="#__codelineno-38-45"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-38-46"><a id="__codelineno-38-46" name="__codelineno-38-46" href="#__codelineno-38-46"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span><span id="__span-38-47"><a id="__codelineno-38-47" name="__codelineno-38-47" href="#__codelineno-38-47"></a>        <span class="k">return</span>
+</span><span id="__span-38-48"><a id="__codelineno-38-48" name="__codelineno-38-48" href="#__codelineno-38-48"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-38-49"><a id="__codelineno-38-49" name="__codelineno-38-49" href="#__codelineno-38-49"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-38-50"><a id="__codelineno-38-50" name="__codelineno-38-50" href="#__codelineno-38-50"></a>            <span class="n">frames</span><span class="p">:</span> <span class="n">FrameSet</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">wait_for_frames</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-38-51"><a id="__codelineno-38-51" name="__codelineno-38-51" href="#__codelineno-38-51"></a>            <span class="k">if</span> <span class="n">frames</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-38-52"><a id="__codelineno-38-52" name="__codelineno-38-52" href="#__codelineno-38-52"></a>                <span class="k">continue</span>
+</span><span id="__span-38-53"><a id="__codelineno-38-53" name="__codelineno-38-53" href="#__codelineno-38-53"></a>            <span class="n">color_frame</span> <span class="o">=</span> <span class="n">frames</span><span class="o">.</span><span class="n">get_color_frame</span><span class="p">()</span>
+</span><span id="__span-38-54"><a id="__codelineno-38-54" name="__codelineno-38-54" href="#__codelineno-38-54"></a>            <span class="k">if</span> <span class="n">color_frame</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-38-55"><a id="__codelineno-38-55" name="__codelineno-38-55" href="#__codelineno-38-55"></a>                <span class="k">continue</span>
+</span><span id="__span-38-56"><a id="__codelineno-38-56" name="__codelineno-38-56" href="#__codelineno-38-56"></a>            <span class="c1"># covert to RGB format</span>
+</span><span id="__span-38-57"><a id="__codelineno-38-57" name="__codelineno-38-57" href="#__codelineno-38-57"></a>            <span class="n">color_image</span> <span class="o">=</span> <span class="n">frame_to_bgr_image</span><span class="p">(</span><span class="n">color_frame</span><span class="p">)</span>
+</span><span id="__span-38-58"><a id="__codelineno-38-58" name="__codelineno-38-58" href="#__codelineno-38-58"></a>            <span class="k">if</span> <span class="n">color_image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-38-59"><a id="__codelineno-38-59" name="__codelineno-38-59" href="#__codelineno-38-59"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;failed to convert frame to image&quot;</span><span class="p">)</span>
+</span><span id="__span-38-60"><a id="__codelineno-38-60" name="__codelineno-38-60" href="#__codelineno-38-60"></a>                <span class="k">continue</span>
+</span><span id="__span-38-61"><a id="__codelineno-38-61" name="__codelineno-38-61" href="#__codelineno-38-61"></a>            <span class="n">depth_frame</span> <span class="o">=</span> <span class="n">frames</span><span class="o">.</span><span class="n">get_depth_frame</span><span class="p">()</span>
+</span><span id="__span-38-62"><a id="__codelineno-38-62" name="__codelineno-38-62" href="#__codelineno-38-62"></a>            <span class="k">if</span> <span class="n">depth_frame</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-38-63"><a id="__codelineno-38-63" name="__codelineno-38-63" href="#__codelineno-38-63"></a>                <span class="k">continue</span>
+</span><span id="__span-38-64"><a id="__codelineno-38-64" name="__codelineno-38-64" href="#__codelineno-38-64"></a>
+</span><span id="__span-38-65"><a id="__codelineno-38-65" name="__codelineno-38-65" href="#__codelineno-38-65"></a>            <span class="n">width</span> <span class="o">=</span> <span class="n">depth_frame</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span>
+</span><span id="__span-38-66"><a id="__codelineno-38-66" name="__codelineno-38-66" href="#__codelineno-38-66"></a>            <span class="n">height</span> <span class="o">=</span> <span class="n">depth_frame</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+</span><span id="__span-38-67"><a id="__codelineno-38-67" name="__codelineno-38-67" href="#__codelineno-38-67"></a>            <span class="n">scale</span> <span class="o">=</span> <span class="n">depth_frame</span><span class="o">.</span><span class="n">get_depth_scale</span><span class="p">()</span>
+</span><span id="__span-38-68"><a id="__codelineno-38-68" name="__codelineno-38-68" href="#__codelineno-38-68"></a>
+</span><span id="__span-38-69"><a id="__codelineno-38-69" name="__codelineno-38-69" href="#__codelineno-38-69"></a>            <span class="n">depth_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">depth_frame</span><span class="o">.</span><span class="n">get_data</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span>
+</span><span id="__span-38-70"><a id="__codelineno-38-70" name="__codelineno-38-70" href="#__codelineno-38-70"></a>            <span class="n">depth_data</span> <span class="o">=</span> <span class="n">depth_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span>
+</span><span id="__span-38-71"><a id="__codelineno-38-71" name="__codelineno-38-71" href="#__codelineno-38-71"></a>            <span class="n">depth_data</span> <span class="o">=</span> <span class="n">depth_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+</span><span id="__span-38-72"><a id="__codelineno-38-72" name="__codelineno-38-72" href="#__codelineno-38-72"></a>            <span class="n">depth_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">depth_data</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">NORM_MINMAX</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">CV_8U</span><span class="p">)</span>
+</span><span id="__span-38-73"><a id="__codelineno-38-73" name="__codelineno-38-73" href="#__codelineno-38-73"></a>            <span class="c1"># depth_image = cv2.applyColorMap(depth_image, cv2.COLORMAP_JET)</span>
+</span><span id="__span-38-74"><a id="__codelineno-38-74" name="__codelineno-38-74" href="#__codelineno-38-74"></a>            <span class="c1"># overlay color image on depth image</span>
+</span><span id="__span-38-75"><a id="__codelineno-38-75" name="__codelineno-38-75" href="#__codelineno-38-75"></a>            <span class="c1"># depth_image = cv2.addWeighted(color_image, 0.5, depth_image, 0.5, 0)</span>
+</span><span id="__span-38-76"><a id="__codelineno-38-76" name="__codelineno-38-76" href="#__codelineno-38-76"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;SyncAlignViewer &quot;</span><span class="p">,</span> <span class="n">depth_image</span><span class="p">)</span>
+</span><span id="__span-38-77"><a id="__codelineno-38-77" name="__codelineno-38-77" href="#__codelineno-38-77"></a>            <span class="c1"># cv2.imwrite(&quot;color_viewer.jpg&quot;, color_image)</span>
+</span><span id="__span-38-78"><a id="__codelineno-38-78" name="__codelineno-38-78" href="#__codelineno-38-78"></a>            <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;color_image&quot;</span><span class="p">,</span> <span class="n">color_image</span><span class="p">)</span>
+</span><span id="__span-38-79"><a id="__codelineno-38-79" name="__codelineno-38-79" href="#__codelineno-38-79"></a>            <span class="n">key</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-38-80"><a id="__codelineno-38-80" name="__codelineno-38-80" href="#__codelineno-38-80"></a>            <span class="n">my_seg</span><span class="p">(</span><span class="n">depth_data</span><span class="p">,</span> <span class="n">color_image</span><span class="p">)</span>
+</span><span id="__span-38-81"><a id="__codelineno-38-81" name="__codelineno-38-81" href="#__codelineno-38-81"></a>            <span class="n">output_data</span><span class="p">(</span><span class="n">depth_data</span><span class="p">)</span>
+</span><span id="__span-38-82"><a id="__codelineno-38-82" name="__codelineno-38-82" href="#__codelineno-38-82"></a>            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">ESC_KEY</span><span class="p">:</span>
+</span><span id="__span-38-83"><a id="__codelineno-38-83" name="__codelineno-38-83" href="#__codelineno-38-83"></a>                <span class="k">break</span>
+</span><span id="__span-38-84"><a id="__codelineno-38-84" name="__codelineno-38-84" href="#__codelineno-38-84"></a>        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+</span><span id="__span-38-85"><a id="__codelineno-38-85" name="__codelineno-38-85" href="#__codelineno-38-85"></a>            <span class="k">break</span>
+</span><span id="__span-38-86"><a id="__codelineno-38-86" name="__codelineno-38-86" href="#__codelineno-38-86"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span><span id="__span-38-87"><a id="__codelineno-38-87" name="__codelineno-38-87" href="#__codelineno-38-87"></a>
+</span><span id="__span-38-88"><a id="__codelineno-38-88" name="__codelineno-38-88" href="#__codelineno-38-88"></a>
+</span><span id="__span-38-89"><a id="__codelineno-38-89" name="__codelineno-38-89" href="#__codelineno-38-89"></a><span class="k">def</span> <span class="nf">output_data</span><span class="p">(</span><span class="n">depth_data</span><span class="p">):</span>
+</span><span id="__span-38-90"><a id="__codelineno-38-90" name="__codelineno-38-90" href="#__codelineno-38-90"></a>    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;depth_data&quot;</span><span class="p">,</span> <span class="n">depth_data</span><span class="p">)</span>
+</span><span id="__span-38-91"><a id="__codelineno-38-91" name="__codelineno-38-91" href="#__codelineno-38-91"></a>    <span class="c1"># np.savetxt(&quot;depth_data&quot;, depth_data)</span>
+</span><span id="__span-38-92"><a id="__codelineno-38-92" name="__codelineno-38-92" href="#__codelineno-38-92"></a>    <span class="n">color_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span>
+</span><span id="__span-38-93"><a id="__codelineno-38-93" name="__codelineno-38-93" href="#__codelineno-38-93"></a>
+</span><span id="__span-38-94"><a id="__codelineno-38-94" name="__codelineno-38-94" href="#__codelineno-38-94"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-38-95"><a id="__codelineno-38-95" name="__codelineno-38-95" href="#__codelineno-38-95"></a>    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</span></code></pre></div>
+</details>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-09T18:40:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-09</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-21T19:44:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-21</span>
       
         <br>
         创建日期:
