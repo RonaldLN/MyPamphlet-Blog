@@ -1000,7 +1000,7 @@
 <h2 id="1010">10.10 行程中<a class="headerlink" href="#1010" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>晚上在火车上晚上研究学长给的<em>去年的代码</em>时，发现之前给的是前年的而不是去年的，所以重新找到了真正去年的代码，</p>
+<p>晚上在火车上研究学长给的<em>去年的代码</em>时，发现之前给的是前年的而不是去年的，所以重新找到了真正去年的代码，</p>
 <p>然后重新开始研究</p>
 <hr />
 <p>最后大概从晚上10点看到了11点半，由于一些我个人的事情需要处理，就停止了当晚的工作</p>
@@ -1580,6 +1580,7 @@
 <p>需要在 <strong>控制面板 - 网络和 Internet - 网络和共享中心</strong> 中，点击左侧的 <strong>更改适配器设置</strong></p>
 <p><a class="glightbox" href="../../../../images/change_adapter_settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="change_adapter_settings" loading="lazy" src="../../../../images/change_adapter_settings.png" /></a></p>
 <p>或者(window 10)在 <strong>设置</strong> 中点击 <strong>网络和 Internet</strong> ，里面在 <strong>高级网络设置</strong> 下也可以点击 <strong>更改适配器选项</strong>，然后都会进入</p>
+<p><a class="glightbox" href="../../../../images/ethernet.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ethernet" loading="lazy" src="../../../../images/ethernet.png" /></a></p>
 <p>然后右键点击 <strong>以太网</strong> ，选择 <strong>属性</strong> ，</p>
 <p>在 <strong>此连接使用下列项目</strong> 中，选中 <strong><mark>Internet 协议版本 4 (TCP/IPv4)</mark></strong> ，然后点击 <strong>属性</strong> ，</p>
 <p>然后在 属性 页面中，选择 <strong>使用下面的 IP 地址</strong>，以及填写</p>
@@ -1838,6 +1839,13 @@
 </span></code></pre></div>
 <p>然后再板子上进行了测试，经过数次测试，发现虽然GUI显示出来之前，程序加载耗时非常长，但是之后的耗时相当地短，</p>
 <p>于是我有了一个更加大胆的想法，将使用的识别模型从 <code>n</code> 换成最大的模型 <code>x</code> 😏，</p>
+<p>我将 <code>x</code> 模型重命名为 <code>best_x.pt</code> ，然后在 <code>detect.py</code> 中进行修改</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="o">...</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s1">&#39;best_x.pt&#39;</span><span class="p">,</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>        <span class="o">...</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>        <span class="p">):</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>    <span class="o">...</span>
+</span></code></pre></div>
 <p>最后测试发现，即使使用 <code>x</code> 模型，最后的耗时也足够的短😆(可能是由于在酒店测试是识别出的东西较少，所以耗时短，比赛时就差一点点超时了，但无论如何，还是比之前所用的时间短了很多)，</p>
 <p><a class="glightbox" href="../../../../images/2nd_round_test.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2nd_round_test" loading="lazy" src="../../../../images/2nd_round_test.jpg" /></a></p>
 <p><a class="glightbox" href="../../../../images/2nd_round_test_result.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2nd_round_test_result" loading="lazy" src="../../../../images/2nd_round_test_result.jpg" /></a></p>
@@ -1860,15 +1868,55 @@
 <blockquote>
 <p>对于成绩中的瓶装洗手液的识别错误，我个人猜测应该是把瓶装饮用水识别成了洗手液</p>
 </blockquote>
+<p>一些比赛时识别出的结果图片(最后一张旋转的圆桌，之前两个桌子的图片被覆盖了)，</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">比赛运行效果1</label><label for="__tabbed_1_2">比赛运行效果2</label><label for="__tabbed_1_3">比赛运行效果3</label><label for="__tabbed_1_4">比赛运行效果4</label><label for="__tabbed_1_5">比赛运行效果5</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/effect_in_contest_1.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="effect_in_contest_1" loading="lazy" src="../../../../images/effect_in_contest_1.jpg" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/effect_in_contest_2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="effect_in_contest_2" loading="lazy" src="../../../../images/effect_in_contest_2.jpg" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/effect_in_contest_3.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="effect_in_contest_3" loading="lazy" src="../../../../images/effect_in_contest_3.jpg" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/effect_in_contest_4.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="effect_in_contest_4" loading="lazy" src="../../../../images/effect_in_contest_4.jpg" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../../images/effect_in_contest_5.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="effect_in_contest_5" loading="lazy" src="../../../../images/effect_in_contest_5.jpg" /></a></p>
+</div>
+</div>
+</div>
 <p>所以到这时，最后3D识别项目就算是基本上结束了</p>
 <h2 id="_22">一些总结<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>经过这次比赛，我认为，在出发前需要准备好东西，要不然到了现场再买很难及时地买到，就会很耽误调试的时间，</p>
+<p><strong>最基本的东西有</strong></p>
+<ol>
+<li>板子(这就不用说了)</li>
+<li>显示器(这个主要是如果没有的话，很难借到)</li>
+<li>电源线(一定得带，否则很难买到，基于这次的经历，<strong>最好还能有一个备用的</strong>，要不然没了也很难借)</li>
+<li>摄像头</li>
+<li>键盘、鼠标、网线、HDMI线(需要匹配显示屏)、U盘(这几个虽然如果忘记带或者漏带了还能借到或者买到，但最好出发前就都准备好)</li>
+</ol>
+<p><strong>如果要现场进行数据集的拍摄，所需要的东西有</strong></p>
+<ul>
+<li>方桌、可以转动的圆盘</li>
+<li>各种需要拍摄的物品(可以带过去或者在当地买，未知物品肯定得现场买)</li>
+<li>各色的大卡纸(用于铺在桌子/圆盘上拍摄数据集)</li>
+<li>摄像头的支架</li>
+<li>打光的灯</li>
+<li>物品的贴纸(如果有贴纸排除的算法，即有使用贴纸的需求)</li>
+</ul>
+<p>所以如果需要带上这些这么多东西，我感觉可能还是3个或者4个人分几部分带比较好，或者让其他项目的人帮带一部分(在比赛场地时感觉周围的队伍基本上都至少3个人，而我们只有两个人，有时会感觉有些忙不过来)</p>
+<p>对于模型而言，<strong>我认为应该还是现场拍摄的模型识别的效果最好</strong>，即使在基地拍摄的数据集训练的模型训练得再好(比如对于各种环境都识别效果很好)，我感觉在比赛时可能还是不如在现场拍摄然后训练出来的模型好用</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-21T19:44:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-21</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-23T05:46:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-23</span>
       
         <br>
         创建日期:
