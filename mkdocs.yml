@@ -145,6 +145,7 @@ plugins:
   - statistics: # 统计页面字数、代码行数、阅读时间
       page_read_time: false
       page_check_metadata: comments
+      page_template: "page_template/page_statistics.html"
 
 
 copyright: Copyright &copy; 2023 - 2023 Ronald Luo
