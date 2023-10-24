@@ -64,11 +64,12 @@ markdown_extensions:
   - pymdownx.details # d
   - pymdownx.superfences # d
   - pymdownx.emoji: # 使用emoji和icon
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences # e 内容选项卡
   - pymdownx.tabbed: # e
       alternate_style: true 
+  - md_in_html # 在 md 文档中能显示 html 的效果
 
 repo_url: https://github.com/RonaldLN/MyPamphlet-Blog
 repo_name: RonaldLN/MyPamphlet-Blog
@@ -141,6 +142,9 @@ plugins:
         - ja
         - en
   # - tags # 添加给单个文档添加tag标签
+  - statistics: # 统计页面字数、代码行数、阅读时间
+      page_read_time: false
+      page_check_metadata: comments
 
 
 copyright: Copyright &copy; 2023 - 2023 Ronald Luo
