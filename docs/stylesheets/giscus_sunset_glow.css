@@ -98,11 +98,11 @@ main {
   --color-btn-primary-hover-border: rgba(var(--primary-default), 0.75);
   --color-fg-default: #000000de;
   --color-fg-muted: #0000008a;
-  --color-canvas-default: ;
-  --color-canvas-inset: rgba(var(--bg-default), 0.85);
-  --color-canvas-subtle: rgba(var(--bg-default), 1);
-  --color-border-default: rgba(var(--bg-default), 0.85);
-  --color-accent-fg: rgba(var(--primary-default), 0.85);
+  --color-canvas-default: hsl(322 21% 77% / 1);
+  --color-canvas-inset: hsl(0 21% 87% / 1);
+  --color-canvas-subtle: hsl(274 21% 70% / 1);
+  --color-border-default: hsl(274 21% 70% / 1);
+  --color-accent-fg: hsl(274 21% 70% / 1);
 }
 
 main .pagination-loader-container {
