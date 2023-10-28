@@ -60,8 +60,6 @@
     
       <link rel="stylesheet" href="../../../../stylesheets/custom.css">
     
-      <link rel="stylesheet" href="../../../../stylesheets/fold_toc.css">
-    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -291,6 +289,8 @@
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
+  <!-- Add scripts that need to run before here -->
+  
             
               
                 
@@ -628,6 +628,12 @@
               </div>
             
           
+  <!-- Add scripts that need to run afterwards here -->
+  
+    <script src="/javascripts/toc.js" defer></script>
+    <link rel="stylesheet" href="/stylesheets/fold_toc.css">
+  
+
           
   <div class="md-content md-content--post" data-md-component="content">
     <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
@@ -751,10 +757,7 @@ $$</p>
 $$</p>
 <p>Substitute  $z$  in terms of polar coordinates:</p>
 <p>$$
-\int \frac{1}{(re<sup>{i\theta})</sup>2} \, dz
-$$</p>
-<p>$$
-= \int \frac{1}{r^2 e^{2i\theta}} \, dz
+\int \frac{1}{(re<sup>{i\theta})</sup>2} \, dz = \int \frac{1}{r^2 e^{2i\theta}} \, dz
 $$</p>
 <p>Now, you can calculate  $dz$  in terms of  $dr$  and  $d\theta$ :</p>
 <p>$$
@@ -1326,7 +1329,7 @@ $$</p>
 <p>$$
 L = \lim_{{n \to \infty}} \left| \frac{a_{n+1}}{a_n} \right|
 $$</p>
-<p>Where $ a_n = 2^n \cdot i \cdot e<sup>{n</sup>2} $.</p>
+<p>Where $ a_n = 2^n \cdot i \cdot e<sup>{n</sup>2} $ .</p>
 <p><strong>user</strong>:</p>
 <p>it should be 1 / (2^n) * exp(i * n ^ 2)</p>
 <p><strong>chatgpt</strong>:</p>
@@ -1443,7 +1446,7 @@ $$</p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-04T05:24:18+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-04</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-10-28T21:38:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-28</span>
       
         <br>
         创建日期:
@@ -1473,7 +1476,7 @@ $$</p>
         data-reactions-enabled="1"
         data-emit-metadata="1"
         data-input-position="top"
-        data-theme="noborder_dark"
+        data-theme="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow.css"
         data-lang="zh-CN"
         data-loading="lazy"
         crossorigin="anonymous"
@@ -1487,8 +1490,8 @@ $$</p>
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
       var theme = palette.color.scheme === "sunset-glow-dark"
-        ? "noborder_dark"
-        : "dark_dimmed"
+        ? "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow_dark.css"
+        : "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow.css"
 
       // Instruct Giscus to set theme
       giscus.setAttribute("data-theme", theme) 
@@ -1501,8 +1504,8 @@ $$</p>
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
           var theme = palette.color.scheme === "sunset-glow-dark"
-            ? "noborder_dark"
-            : "dark_dimmed"
+            ? "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow_dark.css"
+            : "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow.css"
 
           // Instruct Giscus to change theme
           var frame = document.querySelector(".giscus-frame")
@@ -1616,8 +1619,6 @@ $$</p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
-      
-        <script src="../../../../javascripts/baidu-tongji.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

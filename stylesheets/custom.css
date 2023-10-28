@@ -74,3 +74,14 @@
 .md-typeset hr {
   border-bottom: .10rem solid var(--md-default-fg-color--lightest);
 }
+
+/* 修改 Note admonition */
+.md-typeset details.note {
+  border-color: hsl(269deg 77% 78%);
+}
+.md-typeset .note > summary {
+  background-color: hsl(269deg 77% 78% / 10%);
+}
+.md-typeset .note > summary::before {
+  background-color: hsl(269deg 77% 78%);
+}
