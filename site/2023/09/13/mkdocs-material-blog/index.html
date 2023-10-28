@@ -85,6 +85,10 @@
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
     })();
+    var aaa = 1;
+    var aaa = 1;
+    var aaa = 1;
+    var aaa = 1;
     </script>
 
    <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -289,6 +293,8 @@
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
+  <!-- Add scripts that need to run before here -->
+  
             
               
                 
@@ -380,7 +386,7 @@
         
   
   <span class="md-ellipsis">
-    Index
+    Blog
   </span>
   
 
@@ -646,6 +652,13 @@
               </div>
             
           
+  <!-- Add scripts that need to run afterwards here -->
+  <div>sdfsdfsdfdsfdsfdvcxvhskjfhkejfvndnjnjdnfjndn</div>
+  
+    <script src="/js/toc.js" defer></script>
+    <link rel="stylesheet" href="/css/fold_toc.css">
+  
+
           
   <div class="md-content md-content--post" data-md-component="content">
     <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
@@ -770,7 +783,7 @@
 </span></code></pre></div>
 <p>当然想添加其他东西也可以自己添加</p>
 </blockquote>
-<p>在 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.blog_dir"><code>blog-dir</code></a> 中说到，如果想将网页制作成一个<em>独立博客(standalone blog)</em>，可以将 <code>blog-dir</code> 设置成 <code>.</code> ：</p>
+<p>在 <a href="https://squidfunk.github.io/mkdocs-material/plugins/blog/#config.blog_dir"><code>blog-dir</code></a> 中说到，如果想将网页制作成一个<em>独立博客(standalone blog)</em>，可以将 <code>blog-dir</code> 设置成 <code>.</code> ：</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">plugins</span><span class="p">:</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">blog</span><span class="p">:</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">      </span><span class="nt">blog_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
@@ -788,7 +801,7 @@
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span><span class="w"> </span>
 </span></code></pre></div>
 <p>之后我为了图省事，能使用默认的就使用默认的设置(推荐设置和默认设置一样的选项)，只添加推荐的配置和默认不一样的：</p>
-<p><a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.blog_toc"><code>blog_toc</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.post_date_format"><code>post_date_format</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.pagination_format"><code>pagination_format</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.pagination_keep_content"><code>pagination_keep_content</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/#+blog.pagination_keep_content"><code>draft_if_future_date</code></a></p>
+<p><a href="https://squidfunk.github.io/mkdocs-material/plugins/blog/#config.blog_toc"><code>blog_toc</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/plugins/blog/#config.post_date_format"><code>post_date_format</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/plugins/blog/#config.pagination_format"><code>pagination_format</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/plugins/blog/#config.pagination_keep_content"><code>pagination_keep_content</code></a> 、 <a href="https://squidfunk.github.io/mkdocs-material/plugins/blog/#config.draft_if_future_date"><code>draft_if_future_date</code></a></p>
 <p>最后最终我的配置为：</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">plugins</span><span class="p">:</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">blog</span><span class="p">:</span>
@@ -948,7 +961,7 @@
         data-reactions-enabled="1"
         data-emit-metadata="1"
         data-input-position="top"
-        data-theme="noborder_dark"
+        data-theme="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow.css"
         data-lang="zh-CN"
         data-loading="lazy"
         crossorigin="anonymous"
@@ -962,8 +975,8 @@
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
       var theme = palette.color.scheme === "sunset-glow-dark"
-        ? "noborder_dark"
-        : "dark_dimmed"
+        ? "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow_dark.css"
+        : "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow.css"
 
       // Instruct Giscus to set theme
       giscus.setAttribute("data-theme", theme) 
@@ -976,8 +989,8 @@
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
           var theme = palette.color.scheme === "sunset-glow-dark"
-            ? "noborder_dark"
-            : "dark_dimmed"
+            ? "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow_dark.css"
+            : "https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/docs/stylesheets/giscus_sunset_glow.css"
 
           // Instruct Giscus to change theme
           var frame = document.querySelector(".giscus-frame")
@@ -1074,8 +1087,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "toc.follow", "navigation.top", "search.suggest", "navigation.footer", "navigation.tabs", "content.code.copy", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "toc.follow", "navigation.top", "search.suggest", "navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.code.copy", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
@@ -1089,8 +1104,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
-      
-        <script src="../../../../javascripts/baidu-tongji.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

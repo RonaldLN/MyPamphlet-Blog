@@ -14,6 +14,9 @@ theme:
     - search.suggest # 搜索建议
     - navigation.footer # 页面底部有下一页的链接(按目录上的顺序)
     - navigation.tabs # 一级目录融合至顶栏，并且只展示二级目录
+    - navigation.tracking # 在翻到页面对应的标题处时，会将地址栏的地址更新成标题处的链接
+    - navigation.instant
+    - navigation.instant.progress # 页面顶部显示加载进度条
     - content.code.copy # 代码块复制按键
     - search.suggest # 搜索建议
     - search.highlight # 搜索结果高亮/突出显示
@@ -78,7 +81,7 @@ extra_javascript:
   - javascripts/katex.js 
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-  - javascripts/baidu-tongji.js 
+  # - javascripts/baidu-tongji.js 
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css

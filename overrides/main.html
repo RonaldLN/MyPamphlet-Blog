@@ -11,3 +11,13 @@
     })();
     </script>
 {% endblock %}
+
+{% block site_nav %}
+  <!-- Add scripts that need to run before here -->
+  {{ super() }}
+  <!-- Add scripts that need to run afterwards here -->
+  {% if page.toc and not "toc.integrate" in features %}
+    <script src="/javascripts/toc.js" defer></script>
+    <link rel="stylesheet" href="/stylesheets/fold_toc.css">
+  {% endif %}
+{% endblock %}
