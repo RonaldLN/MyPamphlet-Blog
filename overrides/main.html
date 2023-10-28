@@ -17,7 +17,7 @@
   {{ super() }}
   <!-- Add scripts that need to run afterwards here -->
   {% if page.toc and not "toc.integrate" in features %}
-    <script src="/javascripts/toc.js" defer></script>
-    <link rel="stylesheet" href="/stylesheets/fold_toc.css">
+    <script src="/MyPamphlet-Blog/javascripts/toc.js" defer></script>
+    <link rel="stylesheet" href="/MyPamphlet-Blog/stylesheets/fold_toc.css">
   {% endif %}
 {% endblock %}
