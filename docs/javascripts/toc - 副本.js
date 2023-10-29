@@ -32,24 +32,8 @@
           .filter(($heading) => $heading.offsetTop < window.scrollY)
           .sort(($el1, $el2) => $el2.offsetTop - $el1.offsetTop)[0];
       }
-
-      // Update classes based on the currentInView and $headings
-      for (const [heading, menu] of headingToMenu) {
-        if (heading === $heading) {
-          menu.classList.remove('is-passed'); // Remove 'is-passed' if present
-          menu.classList.add('is-active');
-        } else {
-          menu.classList.remove('is-active');
-          if ($headings.indexOf(heading) < $headings.indexOf($heading)) {
-            menu.classList.add('is-passed');
-          } else {
-            menu.classList.remove('is-passed');
-          }
-        }
-      }
-
       if ($heading && headingToMenu.has($heading)) {
-        // $menus.forEach(($menu) => $menu.classList.remove('is-active'));
+        $menus.forEach(($menu) => $menu.classList.remove('is-active'));
 
         const $menu = headingToMenu.get($heading);
         $menu.classList.add('is-active');
@@ -58,7 +42,6 @@
           $menuList.classList.contains('md-nav') &&
           $menuList.parentElement.tagName.toLowerCase() === 'li'
         ) {
-          $menuList.parentElement.children[0].classList.remove('is-passed');
           $menuList.parentElement.children[0].classList.add('is-active');
           $menuList = $menuList.parentElement.parentElement.parentElement;
         }
