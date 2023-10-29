@@ -1,4 +1,9 @@
 .md-nav__list a.is-active {
+  /* color: var(--md-default-fg-color--light); */
+  color: var(--md-typeset-a-color);
+}
+
+.md-nav__list a.is-passed {
   color: var(--md-default-fg-color--light);
 }
 
