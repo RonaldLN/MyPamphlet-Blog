@@ -85,3 +85,6 @@
 .md-typeset .note > summary::before {
   background-color: hsl(269deg 77% 78%);
 }
+.md-typeset .note>.admonition-title:after, .md-typeset .note>summary:after {
+  color:hsl(269deg 77% 78%);
+}
