@@ -90,6 +90,7 @@ extra_css:
   - https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap
   - stylesheets/my_scheme.css
   - stylesheets/custom.css
+  - stylesheets/card.css
 
 extra:
   analytics:
