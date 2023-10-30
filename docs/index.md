@@ -12,8 +12,8 @@ statistics: True
 
 <link rel="stylesheet" href="stylesheets/cards/base.css" />
 <link rel="stylesheet" href="stylesheets/cards/cards.css" />
-<script type="module" crossorigin src="/assets/cards/index.js"></script>
-<link rel="stylesheet" href="/assets/cards/index.css">
+<script type="module" crossorigin src="assets/cards/index.js"></script>
+<link rel="stylesheet" href="assets/cards/index.css">
 <div id="app" style="margin-left: 18.8rem; margin-top: -10rem; margin-bottem: 0rem; margin-right: 5rem;"></div>
 
 ---
