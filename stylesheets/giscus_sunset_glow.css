@@ -50,11 +50,11 @@ main {
   --color-btn-primary-inset-shadow: inset 0 1px 0 #ffffff08;
   /* --color-btn-primary-hover-bg: #1a7f37; */
   /* --color-btn-primary-hover-border: #1f232826; */
-  --color-btn-primary-selected-bg: #187733;
+  /* --color-btn-primary-selected-bg: #187733; */
   --color-btn-primary-selected-shadow: inset 0 1px 0 #002d1133;
-  --color-btn-primary-disabled-text: #fffc;
-  --color-btn-primary-disabled-bg: #94d3a2;
-  --color-btn-primary-disabled-border: #1f232826;
+  /* --color-btn-primary-disabled-text: #fffc; */
+  /* --color-btn-primary-disabled-bg: #94d3a2; */
+  /* --color-btn-primary-disabled-border: #1f232826; */
   --color-action-list-item-default-hover-bg: #d0d7de52;
   --color-segmented-control-bg: #eaeef2;
   --color-segmented-control-button-bg: #fff;
@@ -96,6 +96,10 @@ main {
   --color-btn-primary-border: rgba(var(--primary-default), 0.5);
   --color-btn-primary-hover-bg: rgba(var(--primary-default), 0.3);
   --color-btn-primary-hover-border: rgba(var(--primary-default), 0.75);
+  --color-btn-primary-selected-bg: rgba(var(--primary-default), 0.75);
+  --color-btn-primary-disabled-text: #000000de;
+  --color-btn-primary-disabled-bg: var(--color-btn-primary-bg);
+  --color-btn-primary-disabled-border: var(--color-btn-primary-border);
   --color-fg-default: #000000de;
   --color-fg-muted: #0000008a;
   --color-canvas-default: hsl(322 21% 77% / 1);
