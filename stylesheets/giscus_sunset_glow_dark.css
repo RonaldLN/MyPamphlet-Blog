@@ -94,7 +94,7 @@ main {
   --color-btn-primary-border: rgba(var(--custom-primary-default), 0.5);
   --color-btn-primary-hover-bg: rgba(var(--custom-primary-default), 0.7);
   --color-btn-primary-hover-border: rgba(var(--custom-primary-default), 0.35);
-  --color-btn-primary-selected-bg: rgba(var(--primary-default), 1);
+  --color-btn-primary-selected-bg: rgba(var(--custom-primary-default), 1);
   --color-btn-primary-disabled-text: #fcece9;
   --color-btn-primary-disabled-bg: var(--color-btn-primary-bg);
   --color-btn-primary-disabled-border: var(--color-btn-primary-border);
