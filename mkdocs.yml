@@ -4,7 +4,9 @@ theme:
   name: material # 固定
   language: zh # 语言设置为中文(会改变搜索栏/最后修改 等文字)，默认为英文
   # logo: assets/logo.jpg # 页面中顶部栏左侧图标
-  # favicon: assets/favicon.jpg # 浏览器页面标签图标
+  favicon: icons/favicon.png # 浏览器页面标签图标
+  icon:
+    logo: fontawesome/solid/book
   custom_dir: overrides # html源代码扩展文件夹
   features:
     - navigation.expand # 目录自动展开子目录
