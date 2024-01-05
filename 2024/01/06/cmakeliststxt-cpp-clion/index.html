@@ -746,59 +746,63 @@
 <p>&nbsp;</p>
 <p>Certainly! The provided code is a CMakeLists.txt file, which is used to configure and build C++ projects with CMake, a cross-platform build system. Let's break down the code section by section:</p>
 <ol>
-<li><strong><code>cmake_minimum_required(VERSION 3.20)</code></strong>:</li>
 <li>
-<p>Specifies the minimum version of CMake required to build the project. In this case, it requires version 3.20.</p>
+<p><strong><code>cmake_minimum_required(VERSION 3.20)</code></strong>:</p>
+<ul>
+<li>Specifies the minimum version of CMake required to build the project. In this case, it requires version 3.20.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)</code></strong>:</p>
-</li>
+<ul>
 <li>Retrieves the name of the current source directory and stores it in the variable <code>ProjectId</code>.</li>
-<li>
-<p>The <code>NAME</code> argument to <code>get_filename_component</code> means only the last component of the path (i.e., the directory name) is extracted.</p>
+<li>The <code>NAME</code> argument to <code>get_filename_component</code> means only the last component of the path (i.e., the directory name) is extracted.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>string(REPLACE " " "_" ProjectId ${ProjectId})</code></strong>:</p>
-</li>
-<li>
-<p>Replaces any spaces in the <code>ProjectId</code> variable with underscores. This is done to create a valid CMake project name, as spaces are not allowed in project names.</p>
+<ul>
+<li>Replaces any spaces in the <code>ProjectId</code> variable with underscores. This is done to create a valid CMake project name, as spaces are not allowed in project names.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>project(${ProjectId} CXX)</code></strong>:</p>
-</li>
-<li>
-<p>Declares a C++ project with the name stored in the <code>ProjectId</code> variable.</p>
+<ul>
+<li>Declares a C++ project with the name stored in the <code>ProjectId</code> variable.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>set(CMAKE_CXX_STANDARD 14)</code></strong>:</p>
-</li>
-<li>
-<p>Sets the C++ standard to version 14.</p>
+<ul>
+<li>Sets the C++ standard to version 14.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>file(GLOB_RECURSE files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")</code></strong>:</p>
-</li>
+<ul>
 <li>Uses the <code>file</code> command to generate a list of source files in the current source directory and its subdirectories.</li>
 <li>The <code>GLOB_RECURSE</code> option includes files recursively.</li>
-<li>
-<p>The resulting list of files is stored in the <code>files</code> variable.</p>
+<li>The resulting list of files is stored in the <code>files</code> variable.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>foreach(file ${files})</code></strong>:</p>
-</li>
-<li>
-<p>Iterates over each file in the <code>files</code> list.</p>
+<ul>
+<li>Iterates over each file in the <code>files</code> list.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>get_filename_component(name ${file} NAME)</code></strong>:</p>
-</li>
-<li>
-<p>Retrieves the name of the current file and stores it in the variable <code>name</code>.</p>
+<ul>
+<li>Retrieves the name of the current file and stores it in the variable <code>name</code>.</li>
+</ul>
 </li>
 <li>
 <p><strong><code>add_executable(${name} ${file})</code></strong>:</p>
-</li>
+<ul>
 <li>Creates an executable with the name stored in the <code>name</code> variable, using the corresponding source file stored in the <code>file</code> variable.</li>
+</ul>
+</li>
 </ol>
 <p>In summary, this CMakeLists.txt file sets up a C++ project, replaces spaces in the project name, sets the C++ standard, and creates an executable for each .cpp file in the project directory and its subdirectories. The project name is derived from the name of the directory containing the CMakeLists.txt file.</p>
 <p>&nbsp;</p>
@@ -809,59 +813,63 @@
 <p><strong>ChatGPT</strong>:</p>
 <p>当然！提供的代码是一个CMakeLists.txt文件，用于使用CMake配置和构建C++项目，CMake是一个跨平台的构建系统。让我们逐个部分解释代码：</p>
 <ol>
-<li><strong><code>cmake_minimum_required(VERSION 3.20)</code></strong>：</li>
 <li>
-<p>指定构建项目所需的最低CMake版本。在本例中，需要版本3.20。</p>
+<p><strong><code>cmake_minimum_required(VERSION 3.20)</code></strong>：</p>
+<ul>
+<li>指定构建项目所需的最低CMake版本。在本例中，需要版本3.20。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)</code></strong>：</p>
-</li>
+<ul>
 <li>获取当前源代码目录的名称，并将其存储在变量<code>ProjectId</code>中。</li>
-<li>
-<p><code>get_filename_component</code>中的<code>NAME</code>参数意味着仅提取路径的最后一个组件（即目录名）。</p>
+<li><code>get_filename_component</code>中的<code>NAME</code>参数意味着仅提取路径的最后一个组件（即目录名）。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>string(REPLACE " " "_" ProjectId ${ProjectId})</code></strong>：</p>
-</li>
-<li>
-<p>将<code>ProjectId</code>变量中的任何空格替换为下划线。这是为了创建一个有效的CMake项目名称，因为在项目名称中不允许有空格。</p>
+<ul>
+<li>将<code>ProjectId</code>变量中的任何空格替换为下划线。这是为了创建一个有效的CMake项目名称，因为在项目名称中不允许有空格。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>project(${ProjectId} CXX)</code></strong>：</p>
-</li>
-<li>
-<p>使用存储在<code>ProjectId</code>变量中的名称声明一个C++项目。</p>
+<ul>
+<li>使用存储在<code>ProjectId</code>变量中的名称声明一个C++项目。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>set(CMAKE_CXX_STANDARD 14)</code></strong>：</p>
-</li>
-<li>
-<p>将C++标准设置为14版本。</p>
+<ul>
+<li>将C++标准设置为14版本。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>file(GLOB_RECURSE files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")</code></strong>：</p>
-</li>
+<ul>
 <li>使用<code>file</code>命令生成当前源代码目录及其子目录中的源文件列表。</li>
 <li><code>GLOB_RECURSE</code>选项递归地包含文件。</li>
-<li>
-<p>将结果文件列表存储在<code>files</code>变量中。</p>
+<li>将结果文件列表存储在<code>files</code>变量中。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>foreach(file ${files})</code></strong>：</p>
-</li>
-<li>
-<p>遍历<code>files</code>列表中的每个文件。</p>
+<ul>
+<li>遍历<code>files</code>列表中的每个文件。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>get_filename_component(name ${file} NAME)</code></strong>：</p>
-</li>
-<li>
-<p>获取当前文件的名称，并将其存储在变量<code>name</code>中。</p>
+<ul>
+<li>获取当前文件的名称，并将其存储在变量<code>name</code>中。</li>
+</ul>
 </li>
 <li>
 <p><strong><code>add_executable(${name} ${file})</code></strong>：</p>
-</li>
+<ul>
 <li>使用存储在<code>name</code>变量中的名称，创建一个可执行文件，使用相应的存储在<code>file</code>变量中的源文件。</li>
+</ul>
+</li>
 </ol>
 <p>总的来说，这个CMakeLists.txt文件设置了一个C++项目，替换了项目名称中的空格，设置了C++标准，并为项目目录及其子目录中的每个.cpp文件创建一个可执行文件。项目名称来源于包含CMakeLists.txt文件的目录的名称。</p>
 </details>
@@ -918,7 +926,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-05T18:22:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-05</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-05T18:38:41+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-05</span>
       
         <br>
         创建日期:
