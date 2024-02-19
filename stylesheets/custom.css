@@ -70,6 +70,12 @@
   line-height: 1.8;
 }
 
+/* 修改代码块行号(数字)的字体大小 */
+.highlighttable .linenos {
+  /* font-size: 0.93em; */
+  font-size: .65rem;
+}
+
 /* 修改分割线的宽度 */
 .md-typeset hr {
   border-bottom: .10rem solid var(--md-default-fg-color--lightest);
