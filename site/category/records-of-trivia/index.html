@@ -12,7 +12,7 @@
         <link rel="prev" href="../chronicle-of-events/">
       
       
-        <link rel="next" href="../../archive/2023/">
+        <link rel="next" href="../../archive/2024/">
       
       
       <link rel="icon" href="../../icons/favicon.png">
@@ -434,6 +434,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../archive/2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../archive/2023/" class="md-nav__link">
         
   
@@ -586,6 +606,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#chatgptscheme-reduce" class="md-nav__link">
+    向ChatGPT咨询Scheme语言中 reduce 被用于重复应用指定函数的函数名的原因
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmakeliststxt-cpp-clion" class="md-nav__link">
+    CMakeLists.txt 让所有 .cpp 文件(在 CLion 中)都能直接运行的编写方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vmware-ubuntu-1604-vmware-tools" class="md-nav__link">
+    记录 VMware (Ubuntu 16.04)虚拟机 『安装 VMware Tools』 选项显示灰色的解决办法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatgpt" class="md-nav__link">
+    记录使用ChatGPT来生成一份企划书上的内容(部分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#neural-collaborative-filtering" class="md-nav__link">
     阅读第一篇论文 Neural Collaborative Filtering
   </a>
@@ -671,6 +719,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#chatgptscheme-reduce" class="md-nav__link">
+    向ChatGPT咨询Scheme语言中 reduce 被用于重复应用指定函数的函数名的原因
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmakeliststxt-cpp-clion" class="md-nav__link">
+    CMakeLists.txt 让所有 .cpp 文件(在 CLion 中)都能直接运行的编写方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vmware-ubuntu-1604-vmware-tools" class="md-nav__link">
+    记录 VMware (Ubuntu 16.04)虚拟机 『安装 VMware Tools』 选项显示灰色的解决办法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatgpt" class="md-nav__link">
+    记录使用ChatGPT来生成一份企划书上的内容(部分)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#neural-collaborative-filtering" class="md-nav__link">
     阅读第一篇论文 Neural Collaborative Filtering
   </a>
@@ -725,6 +801,221 @@
       <header class="md-typeset">
         <h1 id="records-of-trivia">Records of Trivia<a class="headerlink" href="#records-of-trivia" title="Permanent link">&para;</a></h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg" alt="Ronald Luo">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-01-29 00:00:00">2024年1月29日星期一</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="./" class="md-meta__link">Records of Trivia</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 1 分钟阅读时间
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="chatgptscheme-reduce"><a class="toclink" href="../../2024/01/29/chatgptscheme-reduce/">向ChatGPT咨询Scheme语言中 <code>reduce</code> 被用于重复应用指定函数的函数名的原因</a></h2>
+<div style="margin-top: -15px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1165 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 10 行代码 </p>
+</div>
+<p>由于在cs61a课程中的Scheme部分了解到了内置的 <code>reduce</code> 函数，</p>
+<blockquote>
+<p><code>reduce</code> 的用法和作用大致如下</p>
+<div class="language-scheme highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">addxy</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">))</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">;; (add &#39;(1 3 5 7)) -&gt; 16</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">add</span><span class="w"> </span><span class="nv">s</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nv">addxy</span><span class="w"> </span><span class="nv">s</span><span class="p">))</span>
+</span></code></pre></div>
+<p>即第一个参数是两个参数的函数，第二个参数是一个链表，然后调用 <code>reduce</code> 会将函数应用到链表中的所有元素上</p>
+</blockquote>
+
+    <nav class="md-post__action">
+      <a href="../../2024/01/29/chatgptscheme-reduce/">
+        ...
+        <br />
+        继续阅读
+      </a>
+      <hr>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg" alt="Ronald Luo">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-01-06 00:00:00">2024年1月6日星期六</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="./" class="md-meta__link">Records of Trivia</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 3 分钟阅读时间
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="cmakeliststxt-cpp-clion"><a class="toclink" href="../../2024/01/06/cmakeliststxt-cpp-clion/"><code>CMakeLists.txt</code> 让所有 <code>.cpp</code> 文件(在 CLion 中)都能直接运行的编写方法</a></h2>
+<div style="margin-top: -15px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1167 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 41 行代码 </p>
+</div>
+<p>在cv noj答案时，发现答案作者的<a href="https://gitee.com/annesede/noj_2023_c">答案仓库</a>中看到了 <code>CMakeLists.txt</code> ，感觉是一个项目，于是 <code>clone</code> 下来用 CLion 打开，发现每个 <code>cpp</code> 文件好像都显示可以直接运行</p>
+
+    <nav class="md-post__action">
+      <a href="../../2024/01/06/cmakeliststxt-cpp-clion/">
+        ...
+        <br />
+        继续阅读
+      </a>
+      <hr>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg" alt="Ronald Luo">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-12-04 00:00:00">2023年12月4日星期一</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="./" class="md-meta__link">Records of Trivia</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 2 分钟阅读时间
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="vmware-ubuntu-1604-vmware-tools"><a class="toclink" href="../../2023/12/04/vmware-ubuntu-1604-vmware-tools/">记录 VMware (Ubuntu 16.04)虚拟机 『安装 VMware Tools』 选项显示灰色的解决办法</a></h2>
+<div style="margin-top: -15px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 371 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 1 行代码 </p>
+</div>
+<p>学校的<em>计算机系统基础实验</em>课需要使用一个 Ubuntu 16.04 的虚拟机，我打算在 VMware 打开这个虚拟机(虽然学校的说明文件中让用 VirtualBox，但我发现 VMWare 也能打开)。然后需要安装 VMware Tools ，但是打开虚拟机后发现『安装 VMware Tools』 选项显示为灰色(点击不了)</p>
+
+    <nav class="md-post__action">
+      <a href="../../2023/12/04/vmware-ubuntu-1604-vmware-tools/">
+        ...
+        <br />
+        继续阅读
+      </a>
+      <hr>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg" alt="Ronald Luo">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-11-23 00:00:00">2023年11月23日星期四</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="./" class="md-meta__link">Records of Trivia</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 27 分钟阅读时间
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="chatgpt"><a class="toclink" href="../../2023/11/23/chatgpt/">记录使用ChatGPT来生成一份企划书上的内容(部分)</a></h2>
+<div style="margin-top: -15px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 15983 个字 </p>
+</div>
+<p>由于同学在和他的同学完成项目企划书上的市场分析部分的内容时，说遇到了困难，“chat写出来和💩一样”(😂😅)，(我认为是由于负责内容的同学不会使用gpt)所以在同学请求下，我开始尝试帮助他们搞定市场分析部分的内容。</p>
+<p>大致的过程是，我先让gpt生成框架(老样子还是用英文来问)，再让它给我一个样本，(由于同学告诉我内容需要三四千字)然后再根据它给的框架<strong>分部分</strong>让它扩写(分部分是因为这样才能把每一点扩充得详细)。</p>
+<p>而我想记录/收录下来的原因是，我认为其中的 <mark><strong>先框架再具体例子</strong></mark> ，以及 <mark><strong>分点询问来扩充</strong></mark> ，<mark><strong>用词数来控制想要的详细程度</strong></mark> 的<strong>技巧/窍门/方法</strong>值得学习。</p>
+
+    <nav class="md-post__action">
+      <a href="../../2023/11/23/chatgpt/">
+        ...
+        <br />
+        继续阅读
+      </a>
+      <hr>
+    </nav>
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1036,13 +1327,13 @@
         
         
           
-          <a href="../../archive/2023/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2023">
+          <a href="../../archive/2024/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2024">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                2023
+                2024
               </div>
             </div>
             <div class="md-footer__button md-icon">
