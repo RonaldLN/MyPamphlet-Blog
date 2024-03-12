@@ -75,6 +75,8 @@ markdown_extensions:
   - pymdownx.tabbed: # e
       alternate_style: true 
   - md_in_html # 在 md 文档中能显示 html 的效果
+  - pymdownx.arithmatex: # f 显示 KaTeX 数学公式
+      generic: true # f
 
 repo_url: https://github.com/RonaldLN/MyPamphlet-Blog
 repo_name: RonaldLN/MyPamphlet-Blog
