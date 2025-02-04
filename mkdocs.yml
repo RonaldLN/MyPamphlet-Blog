@@ -89,9 +89,10 @@ extra_javascript:
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
-  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
-  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  # - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css
   - https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap
+  - https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap
   - stylesheets/my_scheme.css
   - stylesheets/custom.css
   - stylesheets/card.css
@@ -156,4 +157,4 @@ plugins:
       page_template: "page_template/page_statistics.html"
 
 
-copyright: Copyright &copy; 2023 - 2024 Ronald Luo
+copyright: Copyright &copy; 2023 - 2025 Ronald Luo
