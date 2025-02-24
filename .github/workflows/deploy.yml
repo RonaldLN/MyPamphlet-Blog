@@ -41,6 +41,6 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "site/*"          # 本地构建的目录
+          source: "site/."          # 本地构建的目录
           target: "/www/wwwroot/blog"   # 服务器目标路径
           overwrite: true            # 覆盖旧文件
