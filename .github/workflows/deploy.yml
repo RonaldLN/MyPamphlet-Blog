@@ -45,6 +45,9 @@ jobs:
       #     target: "/www/wwwroot/blog"   # 服务器目标路径
       #     overwrite: true            # 覆盖旧文件
 
+      - name: Adjust file permissions
+        run: chmod -R u+w .user.ini
+
       # 步骤 5：通过 rsync 上传到服务器
       - name: Deploy via Rsync
         uses: burnett01/rsync-deployments@7.0.2
