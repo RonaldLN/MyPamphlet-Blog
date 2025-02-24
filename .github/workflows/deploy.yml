@@ -45,14 +45,11 @@ jobs:
       #     target: "/www/wwwroot/blog"   # 服务器目标路径
       #     overwrite: true            # 覆盖旧文件
 
-      - name: Adjust file permissions
-        run: chmod -R u+w .user.ini
-
       # 步骤 5：通过 rsync 上传到服务器
       - name: Deploy via Rsync
         uses: burnett01/rsync-deployments@7.0.2
         with:
-          switches: -avz --delete  # 同步并删除服务器上多余文件
+          switches: -avz --delete --exclude='.user.ini'  # 同步并删除服务器上多余文件
           path: "site/"            # 注意末尾斜杠，表示传输目录内容
           remote_path: "/www/wwwroot/blog/"
           remote_host: ${{ secrets.SERVER_IP }}
