@@ -51,7 +51,7 @@ jobs:
         with:
           switches: -avz --delete --exclude='.user.ini'  # 同步并删除服务器上多余文件
           path: "site/"            # 注意末尾斜杠，表示传输目录内容
-          remote_path: "/www/wwwroot/blog/"
+          remote_path: "/www/wwwroot/myblogs/blog/"
           remote_host: ${{ secrets.SERVER_IP }}
           remote_user: ${{ secrets.SERVER_USER }}
           remote_key: ${{ secrets.SSH_KEY }}
