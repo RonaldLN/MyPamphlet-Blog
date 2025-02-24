@@ -34,13 +34,24 @@ jobs:
       - name: Build Site
         run: mkdocs build --strict
 
-      # 步骤 5：通过 SCP 上传到服务器
-      - name: Deploy to Server
-        uses: appleboy/scp-action@v0.1.3
+      # # 步骤 5：通过 SCP 上传到服务器
+      # - name: Deploy to Server
+      #   uses: appleboy/scp-action@v0.1.3
+      #   with:
+      #     host: ${{ secrets.SERVER_IP }}
+      #     username: ${{ secrets.SERVER_USER }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     source: "site/."          # 本地构建的目录
+      #     target: "/www/wwwroot/blog"   # 服务器目标路径
+      #     overwrite: true            # 覆盖旧文件
+
+      # 步骤 5：通过 rsync 上传到服务器
+      - name: Deploy via Rsync
+        uses: burnett01/rsync-deployments@5.2.3
         with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: "site/."          # 本地构建的目录
-          target: "/www/wwwroot/blog"   # 服务器目标路径
-          overwrite: true            # 覆盖旧文件
+          switches: -avz --delete  # 同步并删除服务器上多余文件
+          path: "site/"            # 注意末尾斜杠，表示传输目录内容
+          remote_path: "/www/wwwroot/blog/"
+          remote_host: ${{ secrets.SERVER_IP }}
+          remote_user: ${{ secrets.SERVER_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
