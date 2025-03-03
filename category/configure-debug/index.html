@@ -584,6 +584,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pyrealsense2" class="md-nav__link">
+    查看PyRealSense2包中的类和函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#github-actionsmkdocs" class="md-nav__link">
     编写GitHub Actions工作流实现MkDocs网站自动化部署到云服务器
   </a>
@@ -642,13 +649,6 @@
         <li class="md-nav__item">
   <a href="#4b" class="md-nav__link">
     树莓派4B使用树莓派摄像头记录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3d-3dtopialgm" class="md-nav__link">
-    3D生成模型 3DTopia/LGM 复现过程记录
   </a>
   
 </li>
@@ -744,6 +744,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pyrealsense2" class="md-nav__link">
+    查看PyRealSense2包中的类和函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#github-actionsmkdocs" class="md-nav__link">
     编写GitHub Actions工作流实现MkDocs网站自动化部署到云服务器
   </a>
@@ -806,13 +813,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#3d-3dtopialgm" class="md-nav__link">
-    3D生成模型 3DTopia/LGM 复现过程记录
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -833,6 +833,61 @@
       <header class="md-typeset">
         <h1 id="configure-debug">Configure &amp; Debug<a class="headerlink" href="#configure-debug" title="Permanent link">&para;</a></h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg" alt="Ronald Luo">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-03-03 00:00:00">2025年3月3日星期一</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="./" class="md-meta__link">Configure & Debug</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 17 分钟阅读时间
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="pyrealsense2"><a class="toclink" href="../../2025/03/03/pyrealsense2/">查看PyRealSense2包中的类和函数</a></h2>
+<div style="margin-top: -15px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 385 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 826 行代码 </p>
+</div>
+<p>由于想要在编写的代码中声明类型(方便在使用自己编写的函数时，查看返回的类型)，于是开始查看pyrealsense2包中的代码，然后发现只有一个 <code>__init__.py</code></p>
+<div class="language-python highlight"><span class="filename">pyrealsense2/__init__.py</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># py libs (pyd/so) should be copied to pyrealsense2 folder</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">from</span> <span class="nn">.pyrealsense2</span> <span class="kn">import</span> <span class="o">*</span>
+</span></code></pre></div>
+<p>而 <code>__init__.py</code> 路径下是 <code>pyrealsense2.cp310-win_amd64.pyd</code> 文件，就意识到这是一个使用c++编写的库(而python只是将其进行了封装)，所以无法直接从源代码中查看库中的类和函数。</p>
+
+    <nav class="md-post__action">
+      <a href="../../2025/03/03/pyrealsense2/">
+        ...
+        <br />
+        继续阅读
+      </a>
+      <hr>
+    </nav>
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1301,70 +1356,6 @@
 
     <nav class="md-post__action">
       <a href="../../2024/06/03/4b/">
-        ...
-        <br />
-        继续阅读
-      </a>
-      <hr>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg" alt="Ronald Luo">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-05-08 00:00:00">2024年5月8日星期三</time></li>
-        
-          <li class="md-meta__item">
-            分类于
-            
-              <a href="./" class="md-meta__link">Configure & Debug</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              需要 3 分钟阅读时间
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="3d-3dtopialgm"><a class="toclink" href="../../2024/05/08/3d-3dtopialgm/">3D生成模型 3DTopia/LGM 复现过程记录</a></h2>
-<div style="margin-top: -15px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 766 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 76 行代码 </p>
-</div>
-<h3 id="xformerstorch"><a class="toclink" href="../../2024/05/08/3d-3dtopialgm/#xformerstorch">xformers版本与torch版本不匹配</a></h3>
-<p>按照<a href="https://github.com/3DTopia/LGM#install">README.md</a>中的指示安装环境时，<strong>按顺序</strong> <code>pip install</code> 之后，尝试运行时，显示了torch 2.1.0版本与xformers的要求不匹配的警告，</p>
-<p>查看xformers版本为 <code>0.0.26</code> ，于是打算安装低版本的xformers，</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">xformers</span><span class="o">==</span><span class="m">0</span>.0.23<span class="w"> </span>-i<span class="w"> </span>https://download.pytorch.org/whl/cu118
-</span></code></pre></div>
-<p>安装时，发现会安装 <code>2.1.1</code> 版本的torch，于是就添加上了 <code>--no-deps</code> 的选项(不安装依赖)，</p>
-<blockquote>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">xformers</span><span class="o">==</span><span class="m">0</span>.0.23<span class="w"> </span>--no-deps<span class="w"> </span>-i<span class="w"> </span>https://download.pytorch.org/whl/cu118
-</span></code></pre></div>
-</blockquote>
-<p>再次运行，就没有版本不匹配的报错了</p>
-<blockquote>
-<p><a href="https://github.com/3DTopia/LGM/issues/24#issuecomment-2095803067">安装xformers后，提示torchaudio torchvision的版本不兼容了 · Issue #24 · 3DTopia/LGM (github.com)</a></p>
-</blockquote>
-
-    <nav class="md-post__action">
-      <a href="../../2024/05/08/3d-3dtopialgm/">
         ...
         <br />
         继续阅读
