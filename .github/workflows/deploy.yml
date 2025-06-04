@@ -31,6 +31,7 @@ jobs:
           pip install mkdocs-git-revision-date-localized-plugin==1.2.5
           pip install mkdocs-static-i18n==1.2.3
           pip install mkdocs-statistics-plugin==0.1.2
+          pip install mkdocs-minify-html-plugin==0.3.1
 
       # 步骤 4：构建静态网站
       - name: Build Site

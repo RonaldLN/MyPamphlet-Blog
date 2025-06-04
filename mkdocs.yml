@@ -155,6 +155,7 @@ plugins:
       page_read_time: false
       page_check_metadata: comments
       page_template: "page_template/page_statistics.html"
+  - minify_html # 压缩html文件
 
 
 copyright: Copyright &copy; 2023 - 2025 Ronald Luo
