@@ -3,4 +3,5 @@ authors:
     name: Ronald Luo
     description: I'm A Student
     # avatar: https://github.com/RonaldLN.png
-    avatar: https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg
+    # avatar: https://cdn.jsdelivr.net/gh/RonaldLN/MyPamphlet-Blog@main/assets/avatar.jpg
+    avatar: /assets/avatar.webp
