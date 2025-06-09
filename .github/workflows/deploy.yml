@@ -22,7 +22,8 @@ jobs:
 
       - name: Add Beian
         run: |
-          sed -i "0,/^copyright: /{s|\(copyright: Copyright &copy; 2023 - 2025 Ronald Luo\)|\1 <br> <a target=\"_blank\" href=\"https://beian.miit.gov.cn/\">${beian}</a>|}" mkdocs.yml  # & 在 sed 中需要转义为 \&
+          # sed -i "0,/^copyright: /{s|\(copyright: Copyright &copy; 2023 - 2025 Ronald Luo\)|\1 <br> <a target=\"_blank\" href=\"https://beian.miit.gov.cn/\">${beian}</a>|}" mkdocs.yml  # & 在 sed 中需要转义为 \&
+          python3 utils/add_beian.py mkdocs.yml "${beian}"  # 使用 Python 脚本添加备案号
         env:
           beian: ${{ secrets.BEIAN }}
 
