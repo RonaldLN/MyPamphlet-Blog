@@ -20,6 +20,12 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Add Beian
+        run: |
+          sed -i "0,/^copyright: /{s|\(copyright: Copyright &copy; 2023 - 2025 Ronald Luo\)|\1 <br> <a target=\"_blank\" href=\"https://beian.miit.gov.cn/\">${beian}</a>|}" mkdocs.yml  # & 在 sed 中需要转义为 \&
+        env:
+          beian: ${{ secrets.BEIAN }}
+
       # 步骤 3：安装 MkDocs 及主题插件
       - name: Install Dependencies
         run: |
